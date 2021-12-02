@@ -32,9 +32,18 @@ void test2() {
 //	printf("%d", List_IsSubsquence(L1, L2));
 }
 
+void test3() {
+	LinkedList L;
+	InitList(&L);
+	List_TailInsert(L);
+	Selective_Sort(L);
+	Output(L);
+}
+
 int main() {
-	test();
+//	test();
 //	test2();
+	test3();
 	return 0;
 }
 

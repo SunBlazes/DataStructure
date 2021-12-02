@@ -61,22 +61,23 @@ void Heap_DeleteMax(MaxHeap H) {
 	} 
 	H->elements[Parent] = temp;
 }
-
+ 
 void Transform2MaxHeap(MaxHeap H, int loca) {
 	if (loca * 2 > H->size) return;
 	Transform2MaxHeap(H, loca * 2);
 	Transform2MaxHeap(H, loca * 2 + 1);
 	int left = loca * 2, right = loca * 2 + 1;
-	count++;
 	if (right <= H->size) {
 		if (H->elements[left] > H->elements[right]) {
 			if (H->elements[left] < H->elements[loca]) return;
+			count++;
 			ElementType temp = H->elements[left];
 			H->elements[left] = H->elements[loca];
 			H->elements[loca] = temp;
 			Transform2MaxHeap(H, left);
 		} else {
 			if (H->elements[right] < H->elements[loca]) return;
+			count++;
 			ElementType temp = H->elements[right];
 			H->elements[right] = H->elements[loca];
 			H->elements[loca] = temp;
@@ -84,6 +85,7 @@ void Transform2MaxHeap(MaxHeap H, int loca) {
 		}
 	} else {
 		if (H->elements[left] < H->elements[loca]) return;
+		count++;
 		ElementType temp = H->elements[left];
 		H->elements[left] = H->elements[loca];
 		H->elements[loca] = temp;
@@ -104,8 +106,8 @@ main() {
 	};
 	Heap_DeleteMax(H);*/
 	int i;
-	for (i = 1; i <= 100; i++) H->elements[i] = i;
-	H->size = 100;
+	for (i = 1; i <= 999; i++) H->elements[i] = i;
+	H->size = 999;
 	Transform2MaxHeap(H, 1);
 	for (i = 1; i <= H->size; i++) cout<<(H->elements[i])<<" ";
 	cout<<endl;

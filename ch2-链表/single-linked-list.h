@@ -35,6 +35,29 @@ int List_FindFromEndByLoca(LinkedList, int);
 LinkedList ch2_2015_408(LinkedList);
 LNode List_IsLoop(LinkedList);
 LinkedList ch2_2019_408(LinkedList);
+// Ñ¡ÔñÅÅÐò 
+void Selective_Sort(LinkedList);
+
+void Selective_Sort(LinkedList L) {
+	if (!L->next) return;
+	while (L->next) {
+		ElemType m = ~(1<<31);
+		LNode *prev, *prev1 = L, *p = L->next;
+		while (p) {
+			if (p->data < m) {
+				m = p->data;
+				prev = prev1;
+			}
+			p = p->next;
+			prev1 = prev1->next;
+		}
+		LNode *q = prev->next;
+		prev->next = q->next;
+		q->next = L->next;
+		L->next = q;
+		L = q;
+	}
+}
 
 LinkedList ch2_2019_408(LinkedList L) {
 	
