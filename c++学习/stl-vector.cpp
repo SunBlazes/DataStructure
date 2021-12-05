@@ -11,7 +11,7 @@ void test01() {
 	for (i = 0; i < 10; i++) {
 		v.push_back(i + 1);
 	}
-	
+
 	vector<int> v1 = v;
 	for (it = v1.begin(); it != v1.end(); it++) {
 		cout<<*it<<" ";
@@ -122,11 +122,30 @@ void test06() {
 	cout<<v.capacity()<<endl;
 	// 采用匿名容器对空间进行收缩
 	// 1.先采用传入容器的形式初始化一个匿名容器，capacity和size相等，不存在多余的空间
-	// 2.匿名容器和容器v进行swap，等于把capacity和size交换了，那么v的capacity就收缩到size
+	// 2.匿名容器和容器v进行swap，容器进行交换，那么v就指向了匿名容器，匿名对象就指向了v的容器，v的capacity就收缩到size
 	// 3.执行完匿名容器的这行代码，系统会自动回收匿名容器，不存在匿名容器浪费空间的现象 
 	vector<int>(v).swap(v);
 	cout<<v.capacity();
 }
+
+// 预留空间
+void test07() {
+	int i;
+	vector<int> v;
+	v.reserve(100000);// 给容器预留100000个元素长度，可以减少容器重新分配空间的次数 
+	int num = 0;
+	int *p = NULL;
+	for (i = 0; i < 100000; i++) {
+		v.push_back(i + 1);
+		if (p != &v[0]) {
+			num++;
+			cout<<"pre: "<<p;
+			p = &v[0];
+			cout<<", now: "<<p<<endl;
+		}
+	}
+	cout<<"num: "<<num<<endl;
+} 
 
 main () {
 //	test01();
@@ -134,6 +153,7 @@ main () {
 //	test03();
 //	test04();
 //	test05();
-	test06();
+//	test06();
+//	test07();
 	return 0;
 }
