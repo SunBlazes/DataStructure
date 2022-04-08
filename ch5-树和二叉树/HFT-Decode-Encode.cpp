@@ -23,7 +23,7 @@ void Encode(char*, int*, int);
 void EncodeHandler(BTree, char, int, Node* &child);
 string Decode(BTree, string, int pos = 0);
 
-main () {
+int main () {
 	T = createHFTree(data, 6);
 //	traverse(T);
 	Encode(chs, data, 6);
