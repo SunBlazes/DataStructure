@@ -2,23 +2,23 @@
 using namespace std;
 
 void print(int a, int b) {
-	cout<<"ÆÕÍ¨º¯Êý"<<endl;
+	cout<<"æ™®é€šå‡½æ•°"<<endl;
 }
 
 template<typename T>
 void print(T a, T b) {
-	cout<<"Ä£°åº¯Êý\n";
+	cout<<"æ¨¡æ¿å‡½æ•°\n";
 }
 
 template<typename T>
 void print(T a, T b, T c) {
-	cout<<"ÖØÔØµÄÄ£°åº¯Êý\n";
+	cout<<"é‡è½½çš„æ¨¡æ¿å‡½æ•°\n";
 }
 
-main () {
-	print(5, 6); // ÆÕÍ¨
-	print<>(5, 6); // Ä£°å
-	print(5, 6, 7); // ÖØÔØ
-	print('a', 'b'); // Ä£°å 
+int main () {
+	print(5, 6); // ï¿½ï¿½Í¨
+	print<>(5, 6); // Ä£ï¿½ï¿½
+	print(5, 6, 7); // ï¿½ï¿½ï¿½ï¿½
+	print('a', 'b'); // Ä£ï¿½ï¿½ 
 	return 0;
 }

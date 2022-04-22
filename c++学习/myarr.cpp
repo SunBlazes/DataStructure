@@ -50,7 +50,7 @@ class MyArray {
 		} 
 		T operator[](int loca) {
 			if (loca >= this->length) {
-				cout<<"³¬³öÊý×éÏÖÓÐ³¤¶È\n"; 
+				cout<<"è¶…å‡ºæ•°ç»„çŽ°æœ‰é•¿åº¦\n"; 
 				return -1;
 			} else {
 				return array[loca];
@@ -58,14 +58,14 @@ class MyArray {
 		}
 		void Insert_Tail(T data) {
 			if (length == size) {
-				cout<<"²åÈëÊ§°Ü£¬ÈÝÁ¿ÒÑÂú\n";
+				cout<<"æ’å…¥å¤±è´¥ï¼Œå®¹é‡å·²æ»¡\n";
 			} else {
 				this->array[length++] = data;
 			}
 		}
 		T Delete_Tail() {
 			if (length == 0) {
-				cout<<"Êý×éÎª¿Õ£¬²»ÄÜÉ¾³ý\n";
+				cout<<"æ•°ç»„ä¸ºç©ºï¼Œä¸èƒ½åˆ é™¤\n";
 				return -1;
 			} else {
 				return array[--length];
@@ -79,7 +79,7 @@ class MyArray {
 		}
 };
 
-main () {
+int main () {
 	MyArray<int> obj(1);
 	obj.Insert_Tail(555);
 	MyArray<int> obj1 = obj;

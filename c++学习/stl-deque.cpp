@@ -7,12 +7,12 @@ void print(const deque<int> &d) {
 	deque<int>::const_iterator it = d.begin();
 	for (; it != d.end(); it++) {
 		cout<<*it<<" ";
-//		*it = 100; // const dequeÈİÆ÷µÄÔªËØ¶¼ÊÇÖ»¶Á£¬²»ÔÊĞíĞŞ¸Ä 
+//		*it = 100; // const dequeå®¹å™¨çš„å…ƒç´ éƒ½æ˜¯åªè¯»ï¼Œä¸å…è®¸ä¿®æ”¹
 	}
 	cout<<endl;
 }
 
-// ¹¹Ôìº¯Êı 
+// æ„é€ å‡½æ•°
 void test01() {
 	deque<int> d;
 	d.push_front(10);
@@ -28,7 +28,7 @@ void test01() {
 	print(d3);
 }
 
-// ¸³Öµ
+// èµ‹å€¼
 void test02() {
 	deque<int> d, d1;
 	d.push_front(10);
@@ -38,7 +38,7 @@ void test02() {
 	print(d1);
 }
 
-// ´óĞ¡²Ù×÷
+// å¤§å°æ“ä½œ
 void test03() {
 	deque<int> d;
 	cout<<d.empty()<<endl;
@@ -46,7 +46,7 @@ void test03() {
 	d.resize(100, 10);
 } 
 
-// ²åÈëÓëÉ¾³ı
+// æ’å…¥ä¸åˆ é™¤
 void test04() {
 	deque<int> d;
 	d.push_back(2);
@@ -71,7 +71,7 @@ void test04() {
 	d.clear();
 } 
 
-// Êı¾İ´æÈ¡ 
+// æ•°æ®å­˜å–
 void test05() {
 	deque<int> d;
 	int i;
@@ -82,11 +82,11 @@ void test05() {
 	cout<<d[9]<<endl;
 	cout<<d.at(9)<<endl;
 	
-	cout<<d.front()<<endl;//·µ»ØÊ×¸öÔªËØ
-	cout<<d.back()<<endl;// ·µ»ØÄ©Î²ÔªËØ
+	cout<<d.front()<<endl;//ï¿½ï¿½ï¿½ï¿½ï¿½×¸ï¿½Ôªï¿½ï¿½
+	cout<<d.back()<<endl;// ï¿½ï¿½ï¿½ï¿½Ä©Î²Ôªï¿½ï¿½
 }
 
-// ÅÅĞò
+// æ’åº
 void test06() {
 	deque<int> d;
 	int i;
@@ -98,7 +98,7 @@ void test06() {
 	print(d);
 } 
 
-main () {
+int main () {
 //	test01();
 //	test02();
 //	test03();

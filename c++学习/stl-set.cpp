@@ -17,7 +17,7 @@ void test01() {
 	st.insert(1);
 	print(st);
 	
-	st.erase(5);// É¾³ıÖµÎª5µÄÔªËØ 
+	st.erase(5);// åˆ é™¤å€¼ä¸º5çš„å…ƒç´  
 }
 
 void test02() {
@@ -25,15 +25,15 @@ void test02() {
 	st.insert(5);
 	st.insert(1);
 	
-	// pair.first·µ»ØÔªËØµÄµü´úÆ÷£¬pair.secondÊÇ·ñ²åÈë³É¹¦ 
+	// pair.firstè¿”å›å…ƒç´ çš„è¿­ä»£å™¨ï¼Œpair.secondæ˜¯å¦æ’å…¥æˆåŠŸ
 	pair<set<int>::iterator, bool> ret = st.insert(1);
 	cout<<ret.second<<endl;
 //	cout<<*(++ret.first)<<endl; 
 	
-	// findÕÒµ½»á·µ»Ø¶ÔÓ¦ÔªËØµÄµü´úÆ÷£¬·ñÔò·µ»Øst.end()µü´úÆ÷ 
+	// findæ‰¾åˆ°ä¼šè¿”å›å¯¹åº”å…ƒç´ çš„è¿­ä»£å™¨ï¼Œå¦åˆ™è¿”å›st.end()è¿­ä»£å™¨ 
 	cout<<(st.find(6) != st.end())<<endl;
 	
-	// count·µ»ØÖµÎª6µÄÔªËØ¸öÊı£¬ÓÉÓÚset²»ÔÊĞíÖØ¸´µÄÖµ£¬ËùÒÔ¸öÊıÖ»ÄÜÎª0 or 1
+	// countè¿”å›å€¼ä¸º6çš„å…ƒç´ ä¸ªæ•°ï¼Œç”±äºsetä¸å…è®¸é‡å¤çš„å€¼ï¼Œæ‰€ä»¥ä¸ªæ•°åªèƒ½ä¸º0 or 1
 	cout<<st.count(6)<<endl;
 } 
 
@@ -95,14 +95,14 @@ void test04() {
 	st.insert(p3);
 	st.insert(p4);
 	set<Person, MyCompare1>::iterator it = st.begin();
-	// ÔİÊ±ÈÏÎªµü´úÆ÷·ÃÎÊ²»ÁËÔªËØµÄË½ÓĞ³ÉÔ± Î´½â¾ö 
+	// æš‚æ—¶è®¤ä¸ºè¿­ä»£å™¨è®¿é—®ä¸äº†å…ƒç´ çš„ç§æœ‰æˆå‘˜ æœªè§£å†³
 //	for (; it != st.end(); it++) {
 //		cout<<(*it).name<<" "<<(*it).age<<endl;
 //	}
 	
 }
 
-main () {
+int main () {
 //	test01();
 //	test02();
 //	test03();

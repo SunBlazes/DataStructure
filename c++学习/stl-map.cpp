@@ -4,13 +4,13 @@ using namespace std;
 
 class MyCompare {
 	public:
-		// 改变map默认的以key从小到大方式排序 
+		// 鏀瑰彉map榛樿鐨勪互key浠庡皬鍒板ぇ鏂瑰紡鎺掑簭
 		bool operator()(int v1, int v2) {
 			return v1 > v2;
 		}
 };
 
-main () {
+int main () {
 	map<int, int, MyCompare> m; 
 	m.insert(make_pair(1, 10));
 	m.insert(make_pair(2, 9));

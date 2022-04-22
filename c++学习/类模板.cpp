@@ -15,7 +15,7 @@ class B {
 		T obj;
 	public:
 		void Output_A() {
-			obj.OutputB();//²»»á±¨´í 
+			obj.OutputB();
 		} 
 };
 */
