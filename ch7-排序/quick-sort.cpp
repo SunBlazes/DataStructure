@@ -24,8 +24,8 @@ ElementType Middle3(ElementType* A, int L, int R) {
 void Quicksort(ElementType* A, int L, int R) {
 	if (L == R) return;
 	int Pivot = Middle3(A, L, R);
-	//1.Á½¸öÊıÅÅĞò ÕâÀïµÄj»òi¿ÉÄÜ»áÔ½½ç
-	//2.Èı¸öÊıÒÑ¾­ÔÚMiddle3ÒÑÅÅĞòÍê±Ï 
+	//1.ä¸¤ä¸ªæ•°æ’åº è¿™é‡Œçš„jæˆ–iå¯èƒ½ä¼šè¶Šç•Œ
+	//2.ä¸‰ä¸ªæ•°å·²ç»åœ¨Middle3å·²æ’åºå®Œæ¯• 
 	if (R - L + 1 <= 3) return;
 	int i = L, j = R - 1;
 	while (1) {

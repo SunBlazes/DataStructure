@@ -27,24 +27,24 @@ int main() {
 }
 
 bool Is_MaxHeap(ElementType* A, int Size, int Loca) {
-	// ֻ��һ�����϶������� 
+	// 只有一个结点肯定是最大堆 
 	if (Loca * 2 + 1 >= Size) return true;
-	// ���������Ƿ�Ϊ���� 
+	// 左右子树是否为最大堆 
 	bool flag = Is_MaxHeap(A, Size, 2 * Loca + 1) && 
 		Is_MaxHeap(A, Size, 2 * Loca + 2);
 	int Son = 2 * Loca + 1;
-	// ���ӻ����Һ���(������)��˫�׽�㻹����ô�϶��������� 
+	// 左孩子或者右孩子(若存在)比双亲结点还大，那么肯定不是最大堆 
 	if (A[Loca] < A[Son] || Son + 1 < Size && A[Loca] < A[Son + 1]) 
 		return false;
-	// �����Һ��Ӱ���˫�׽���������ѣ�����Ҫ���������Ƿ�Ҳ�������� 
+	// 若左右孩子包括双亲结点满足最大堆，则还需要左右子树是否也满足最大堆 
 	else 
 		return flag;
 }
 
 void Heap_Sort(ElementType* arr, int size) {
-	// ����˼·: �ȵ���Ϊ���ѣ�Ȼ�����ѭ��
-	// ÿ�ν�����һ��Ԫ�غ����Ѵ�ʱδ����õ����һ��Ԫ��
-	// �������ٵ���Ϊ���ѣ�Ȼ���ظ��˲��� 
+	// 总体思路: 先调整为最大堆，然后进行循环
+	// 每次交换第一个元素和最大堆此时未排序好的最后一个元素
+	// 交换后再调整为最大堆，然后重复此步骤 
 	int i;
 	BuildMaxHeap(arr, size);
 	for (i = 0; i < size; i++) {

@@ -13,7 +13,7 @@ ElementType find (SetType s, ElementType e) {
 }
 
 void isConnected (SetType s) {
-	cout<<"ÇëÊäÈëÁ½¸ö½áµã: \n";
+	cout<<"è¯·è¾“å…¥ä¸¤ä¸ªç»“ç‚¹: \n";
 	ElementType c1, c2;
 	cin>>c1>>c2;
 	ElementType Ancestor1 = find(s, c1), 
@@ -26,7 +26,7 @@ void isConnected (SetType s) {
 }
 
 void connect(SetType s) {
-	cout<<"ÇëÊäÈëÁ½¸ö½áµã: \n";
+	cout<<"è¯·è¾“å…¥ä¸¤ä¸ªç»“ç‚¹: \n";
 	ElementType c1, c2;
 	cin>>c1>>c2;
 	ElementType Ancestor1 = find(s, c1), 
@@ -48,7 +48,7 @@ void connect(SetType s) {
 int main () {
 	SetType s;
 	int count;
-	cout<<"ÇëÊäÈë½áµãÊý: \n";
+	cout<<"è¯·è¾“å…¥ç»“ç‚¹æ•°: \n";
 	cin>>count;
 	int i;
 	for (i = 0; i < count; i++) {

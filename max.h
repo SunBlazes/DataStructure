@@ -4,7 +4,7 @@
 static double max(double, double);
 double useMax(double, double);
 
-extern int gAll; // 变量的声明
+extern int gAll; 
 
 struct Node {
 	int value;

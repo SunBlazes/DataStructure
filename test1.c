@@ -1,7 +1,6 @@
 #include<stdio.h>
 #include<memory.h> 
 
-// ¶þ·Ö·¨
 int searchForLoca(int a[], int start, int end, int v) {
 	int middleIndex = (end - start) / 2 + start;
 	if (v == a[middleIndex]) return middleIndex;

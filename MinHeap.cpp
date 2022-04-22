@@ -11,7 +11,7 @@ MinHeap Heap_Init() {
 	MinHeap H = new(HeapStruct);
 	H->elements = new ElementType[MaxSize];
 	H->size = 0;
-	H->elements[0] = 1<<31; // ·ÅÖÃÉÚ±ø
+	H->elements[0] = 1<<31;
 	return H; 
 }
 

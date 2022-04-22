@@ -6,7 +6,6 @@ using namespace std;
 
 map< string, vector<string> >::iterator map_it;
 
-// N总结点数 M非叶子结点数 
 int N, M;
 
 class Solution {

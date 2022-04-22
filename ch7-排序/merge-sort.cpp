@@ -97,7 +97,7 @@ void Merge(ElementType* A, ElementType* Tmp, int L, int R, int RightEnd) {
 	int ElNumber = RightEnd - L + 1;
 	int i = L;
 	while (L <= LeftEnd && R <= RightEnd) {
-		// A[L] == A[R]可以保证排序稳定 
+		// A[L] == A[R]
 		if (A[L] <= A[R]) {
 			Tmp[i++] = A[L++];
 		} else {
