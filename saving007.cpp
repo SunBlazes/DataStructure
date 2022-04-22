@@ -16,7 +16,6 @@ typedef struct {
 
 typedef struct {
 	Point *points;
-	// ·¶Î§ 
 	int extent;
 	int count;
 } EscapeMap;

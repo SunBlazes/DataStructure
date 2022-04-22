@@ -30,7 +30,7 @@ void Heap_Insert(MaxHeap H, ElementType e) {
 	int Parent = (H->size + 1) / 2, Child = H->size + 1;
 	for (; e > H->elements[Parent]; Child = Parent, Parent = Parent / 2) {
 		H->elements[Child] = H->elements[Parent];
-		count++;
+		::count++;
 	}
 	H->size++;
 	H->elements[Child] = e;
@@ -70,14 +70,14 @@ void Transform2MaxHeap(MaxHeap H, int loca) {
 	if (right <= H->size) {
 		if (H->elements[left] > H->elements[right]) {
 			if (H->elements[left] < H->elements[loca]) return;
-			count++;
+			::count++;
 			ElementType temp = H->elements[left];
 			H->elements[left] = H->elements[loca];
 			H->elements[loca] = temp;
 			Transform2MaxHeap(H, left);
 		} else {
 			if (H->elements[right] < H->elements[loca]) return;
-			count++;
+			::count++;
 			ElementType temp = H->elements[right];
 			H->elements[right] = H->elements[loca];
 			H->elements[loca] = temp;
@@ -85,7 +85,7 @@ void Transform2MaxHeap(MaxHeap H, int loca) {
 		}
 	} else {
 		if (H->elements[left] < H->elements[loca]) return;
-		count++;
+		::count++;
 		ElementType temp = H->elements[left];
 		H->elements[left] = H->elements[loca];
 		H->elements[loca] = temp;
@@ -93,7 +93,7 @@ void Transform2MaxHeap(MaxHeap H, int loca) {
 	}
 } 
 
-main() {
+int main() {
 	MaxHeap H = Heap_Init();
 	/* ElementType e;
 	cin>>e;
@@ -111,6 +111,6 @@ main() {
 	Transform2MaxHeap(H, 1);
 	for (i = 1; i <= H->size; i++) cout<<(H->elements[i])<<" ";
 	cout<<endl;
-	cout<<"count: "<<count;
+	cout<<"count: "<<::count;
 	return 0;
 }

@@ -83,6 +83,7 @@ HFTree createHFTree(int weight[], int len) {
 	for (i = 0; i < len; i++) {
 		HT[i] = new (HFTNode);
 		HT[i]->lchild = HT[i]->rchild = NULL;
+		HT[i]->weight = weight[i];
 	}
 	int s1, s2 = -1;
 	while (i < 2 * len - 1) {
