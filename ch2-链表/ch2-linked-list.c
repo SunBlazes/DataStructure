@@ -39,7 +39,6 @@ int Empty(LinkedList L) {
 void List_Delete(LNode** head, LNode *curr, LNode* prev, int data) {
 	if (!curr || !(*head)) return;
 	if (curr->data == data) {
-//		首部需要被删除 
 		if (!prev) {
 			*head = (*head)->next;
 		} else {

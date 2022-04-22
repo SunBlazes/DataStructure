@@ -35,7 +35,7 @@ int List_FindFromEndByLoca(LinkedList, int);
 LinkedList ch2_2015_408(LinkedList);
 LNode List_IsLoop(LinkedList);
 LinkedList ch2_2019_408(LinkedList);
-// Ñ¡ÔñÅÅĞò 
+// é€‰æ‹©æ’åº 
 void Selective_Sort(LinkedList);
 
 void Selective_Sort(LinkedList L) {
@@ -87,7 +87,7 @@ LinkedList ch2_2015_408(LinkedList L) {
 	return p->next;
 }*/
 
-// ²éÕÒÁ´±íÖĞµÄµ¹ÊıµÚk¸öÎ»ÖÃµÄ½áµã£¬Êä³öËüµÄdata²¢·µ»Ø1£¬·ñÔò·µ»Ø0 
+// æŸ¥æ‰¾é“¾è¡¨ä¸­çš„å€’æ•°ç¬¬kä¸ªä½ç½®çš„ç»“ç‚¹ï¼Œè¾“å‡ºå®ƒçš„dataå¹¶è¿”å›1ï¼Œå¦åˆ™è¿”å›0 
 int List_FindFromEndByLoca(LinkedList L, int k) {
 	LNode *p = L->next, *q = L;
 	int gap = 1;
@@ -105,7 +105,7 @@ int List_FindFromEndByLoca(LinkedList L, int k) {
 	}
 }
 
-// ÅĞ¶ÏBÊÇ·ñÎªAµÄÁ¬Ğø×ÓĞòÁĞ 
+// åˆ¤æ–­Bæ˜¯å¦ä¸ºAçš„è¿ç»­å­åºåˆ— 
 int List_IsSubsquence(LinkedList A, LinkedList B) {
 	LNode *p = A->next, *q1, *q2;
 	if (!(B->next)) return 1;
@@ -129,7 +129,7 @@ int List_IsSubsquence(LinkedList A, LinkedList B) {
 	return flag;
 }
 
-// ³é³öÁ½¸öµİÔöÁ´±íµÄ¹«¹Ø½áµã¹¹³ÉĞÂÁ´±íÇÒ²»ÆÆ»µÔ­À´Á½¸öÁ´±í 
+// æŠ½å‡ºä¸¤ä¸ªé€’å¢é“¾è¡¨çš„å…¬å…³ç»“ç‚¹æ„æˆæ–°é“¾è¡¨ä¸”ä¸ç ´ååŸæ¥ä¸¤ä¸ªé“¾è¡¨ 
 LinkedList List_Mutual(LinkedList L1, LinkedList L2) {
 	LinkedList L;
 	InitList(&L);
@@ -154,7 +154,7 @@ LinkedList List_Mutual(LinkedList L1, LinkedList L2) {
 	return L;
 }
 
-// Á½¸öµİÔöÁ´±í¹é²¢ÎªÒ»¸öµİ¼õÁ´±í£¬ÇÒÊ¹ÓÃÔ­À´½áµã´æ·Å¹é²¢ºóµÄ½áµã
+// ä¸¤ä¸ªé€’å¢é“¾è¡¨å½’å¹¶ä¸ºä¸€ä¸ªé€’å‡é“¾è¡¨ï¼Œä¸”ä½¿ç”¨åŸæ¥ç»“ç‚¹å­˜æ”¾å½’å¹¶åçš„ç»“ç‚¹
 LinkedList List_MergeIntoDecrease(LinkedList L1, LinkedList L2) {
 	LNode *p1 = L1->next, *p2 = L2->next, *r;
 	L1->next = NULL;
@@ -174,7 +174,7 @@ LinkedList List_MergeIntoDecrease(LinkedList L1, LinkedList L2) {
 	return L1;
 }
 
-// É¾³ıÁ´±íÖØ¸´µÄ½áµã 
+// åˆ é™¤é“¾è¡¨é‡å¤çš„ç»“ç‚¹ 
 LinkedList List_DeleteRe(LinkedList L) {
 	LNode *p, *q = L, *pre;
 	if (!(L->next)) return L;
@@ -195,7 +195,7 @@ LinkedList List_DeleteRe(LinkedList L) {
 	return L;
 }
 
-// ·Ö½âÁ´±íÎªÁ½¸öÁ´±í£¬·Ö±ğ°üº¬Å¼ÊıºÍÆæÊı 
+// åˆ†è§£é“¾è¡¨ä¸ºä¸¤ä¸ªé“¾è¡¨ï¼Œåˆ†åˆ«åŒ…å«å¶æ•°å’Œå¥‡æ•° 
 void List_SplitByOddEven(LinkedList L) {
 	LinkedList E, O;
 	InitList(&E);
@@ -220,7 +220,7 @@ void List_SplitByOddEven(LinkedList L) {
 	Output(O);
 }
 
-// ÕÒ³öÁ½¸öÁ´±íµÄ¹«¹²½áµã 
+// æ‰¾å‡ºä¸¤ä¸ªé“¾è¡¨çš„å…¬å…±ç»“ç‚¹ 
 LinkedList List_FindMutualNode(LinkedList L1, LinkedList L2) {
 	LinkedList L;
 	InitList(&L);
@@ -235,7 +235,7 @@ LinkedList List_FindMutualNode(LinkedList L1, LinkedList L2) {
 	return L;
 }
 
-// Ê¹Á´±íµİÔöÓĞĞò(Ã°ÅİÅÅĞò)
+// ä½¿é“¾è¡¨é€’å¢æœ‰åº(å†’æ³¡æ’åº)
 LinkedList List_Increment(LinkedList L) {
 	if (L->next == NULL) return L; 
 	LNode *p, *q, *pre, *tail;
@@ -259,7 +259,7 @@ LinkedList List_Increment(LinkedList L) {
 }
  
 
-// ¾ÍµØµ¹ÖÃ 
+// å°±åœ°å€’ç½® 
 LinkedList List_Reverse(LinkedList L) {
 	if (L->next == NULL) return L;
 	LNode *curr = L->next, *pre = L->next;
@@ -272,7 +272,7 @@ LinkedList List_Reverse(LinkedList L) {
 	return L;
 }
 
-// ÄæĞòÊä³ö 
+// é€†åºè¾“å‡º 
 void List_ReOutput(LinkedList L, int flag) {
 	if (L == NULL) return;
 	List_ReOutput(L->next, 0);
@@ -282,7 +282,7 @@ void List_ReOutput(LinkedList L, int flag) {
 	printf("\n");
 }
 
-// É¾³ı×îĞ¡½áµã£¨¼ÙÉè×îĞ¡½áµãÎ¨Ò»£© 
+// åˆ é™¤æœ€å°ç»“ç‚¹ï¼ˆå‡è®¾æœ€å°ç»“ç‚¹å”¯ä¸€ï¼‰ 
 LinkedList List_DeleteMin(LinkedList L) {
 	LNode *prev = NULL, *curr = L->next, *min = L;
 	while (curr) {
@@ -315,7 +315,7 @@ LinkedList List_DeleteAll(LinkedList L, int data) {
 	return L;
 }
 
-// ´øÍ·Ö¸ÕëµÄ³õÊ¼»¯ 
+// å¸¦å¤´æŒ‡é’ˆçš„åˆå§‹åŒ– 
 int InitList(LinkedList *L) {
 	*L = (LNode*)malloc(sizeof(LNode));
 	if (*L == NULL) {
@@ -325,12 +325,12 @@ int InitList(LinkedList *L) {
 	return 1;
 }
 
-// ´øÍ·Ö¸ÕëµÄÅĞ¿Õ 
+// å¸¦å¤´æŒ‡é’ˆçš„åˆ¤ç©º 
 int Empty(LinkedList L) {
 	return L->next == NULL;
 }
 
-// ´øÍ·Ö¸ÕëµÄÍ·²å·¨ (ÄæĞò)
+// å¸¦å¤´æŒ‡é’ˆçš„å¤´æ’æ³• (é€†åº)
 LinkedList List_HeadInsert(LinkedList L) {
 	ElemType data;
 	LNode* curr = NULL;
@@ -346,7 +346,7 @@ LinkedList List_HeadInsert(LinkedList L) {
 	return L;
 }
 
-// ´øÍ·Ö¸ÕëµÄÎ²²å·¨ (ÕıĞò)
+// å¸¦å¤´æŒ‡é’ˆçš„å°¾æ’æ³• (æ­£åº)
 LinkedList List_TailInsert(LinkedList L) {
 	LNode *p = L;
 	ElemType data;
@@ -362,7 +362,7 @@ LinkedList List_TailInsert(LinkedList L) {
 	return L;
 }
 
-// ´øÍ·Ö¸ÕëµÄ°´Ğò²éÕÒ 
+// å¸¦å¤´æŒ‡é’ˆçš„æŒ‰åºæŸ¥æ‰¾ 
 LNode* GetElem(LinkedList L, int i) {
 	int j = 1;
 	LNode *p = L;
@@ -370,7 +370,7 @@ LNode* GetElem(LinkedList L, int i) {
 	return p;
 }
 
-// ´øÍ·Ö¸ÕëµÄÊä³ö 
+// å¸¦å¤´æŒ‡é’ˆçš„è¾“å‡º 
 void Output(LinkedList L) {
 	LNode *p;
 	for (p = L->next; p; p = p->next) {
@@ -379,14 +379,14 @@ void Output(LinkedList L) {
 	printf("\n");
 }
 
-// ´øÍ·Ö¸ÕëµÄ°´Öµ²éÕÒ 
+// å¸¦å¤´æŒ‡é’ˆçš„æŒ‰å€¼æŸ¥æ‰¾ 
 LNode* LocateElem(LinkedList L, ElemType e) {
 	LNode *curr = L;
 	while ((curr = curr->next) && e != curr->data);
 	return curr;
 }
 
-// ´øÍ·Ö¸ÕëµÄÍùÇ°²åÈë 
+// å¸¦å¤´æŒ‡é’ˆçš„å¾€å‰æ’å…¥ 
 LinkedList List_PrevInsert(LinkedList L, int i, ElemType e) {
 	LNode *prev_node = GetElem(L, i - 1);
 	if (prev_node == NULL) return L;
@@ -397,7 +397,7 @@ LinkedList List_PrevInsert(LinkedList L, int i, ElemType e) {
 	return L;
 }
 
-// ´øÍ·Ö¸ÕëµÄÍùºó²åÈë 
+// å¸¦å¤´æŒ‡é’ˆçš„å¾€åæ’å…¥ 
 LinkedList List_NextInsert(LinkedList L, int i, ElemType e) {
 	LNode *curr_node = GetElem(L, i);
 	if (curr_node == NULL) return L;
@@ -408,7 +408,7 @@ LinkedList List_NextInsert(LinkedList L, int i, ElemType e) {
 	return L;
 }
 
-// ´øÍ·Ö¸ÕëµÄÉ¾³ı 
+// å¸¦å¤´æŒ‡é’ˆçš„åˆ é™¤ 
 LinkedList List_Delete(LinkedList L, int i) {
 	LNode *prev_node = GetElem(L, i - 1), *delete_node = GetElem(L, i);
 	if (!delete_node) return L;
@@ -418,13 +418,13 @@ LinkedList List_Delete(LinkedList L, int i) {
 	return L; 
 }
 
-// ´øÍ·Ö¸ÕëµÄÖ¸¶¨½áµãÏòÇ°²å 
+// å¸¦å¤´æŒ‡é’ˆçš„æŒ‡å®šç»“ç‚¹å‘å‰æ’ 
 LNode* List_InsertPriorNode(LNode* node, ElemType e) {
 	if (!node) return NULL;
 	LNode *new_node = (LNode*)malloc(sizeof(LNode));
 	new_node->next = node->next;
-	node->next = new_node; // °ÑĞÂ½áµã²åÈëµ½Ö¸¶¨½áµãºóÃæ
-	// ½»»»ĞÂ½ÚµãºÍÖ¸¶¨½ÚµãµÄdata 
+	node->next = new_node; // æŠŠæ–°ç»“ç‚¹æ’å…¥åˆ°æŒ‡å®šç»“ç‚¹åé¢
+	// äº¤æ¢æ–°èŠ‚ç‚¹å’ŒæŒ‡å®šèŠ‚ç‚¹çš„data 
 	new_node->data = node->data;   
 	node->data = e;
 	return node;

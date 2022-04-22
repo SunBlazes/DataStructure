@@ -7,17 +7,17 @@ typedef int Vertex;
 typedef int WeightType;
 
 typedef struct _ArcNode {
-	Vertex TailVex; // »¡Î²ÔÚÍ¼ÖĞµÄÎ»ÖÃ 
-	Vertex HeadVex; // »¡Í·ÔÚÍ¼ÖĞµÄÎ»ÖÃ 
-	struct _ArcNode* HLink; // Ö¸Ïò»¡Í·ÏàÍ¬µÄÏÂÒ»Ìõ»¡ 
-	struct _ArcNode* TLink; // Ö¸Ïò»¡Î²ÏàÍ¬µÄÏÂÒ»Ìõ»¡ 
+	Vertex TailVex; // å¼§å°¾åœ¨å›¾ä¸­çš„ä½ç½® 
+	Vertex HeadVex; // å¼§å¤´åœ¨å›¾ä¸­çš„ä½ç½® 
+	struct _ArcNode* HLink; // æŒ‡å‘å¼§å¤´ç›¸åŒçš„ä¸‹ä¸€æ¡å¼§ 
+	struct _ArcNode* TLink; // æŒ‡å‘å¼§å°¾ç›¸åŒçš„ä¸‹ä¸€æ¡å¼§ 
 	WeightType Weight;
 } ANode, *ArcNode;
 
 typedef struct {
 	Vertex Vex;
-	ArcNode FirstIn; // ÒÔ¸Ã¶¥µãÎª»¡Í·µÄµÚÒ»¸ö»¡½áµã 
-	ArcNode FirstOut; // ÒÔ¸Ã¶¥µãÎª»¡Î²µÄµÚÒ»¸ö»¡½áµã
+	ArcNode FirstIn; // ä»¥è¯¥é¡¶ç‚¹ä¸ºå¼§å¤´çš„ç¬¬ä¸€ä¸ªå¼§ç»“ç‚¹ 
+	ArcNode FirstOut; // ä»¥è¯¥é¡¶ç‚¹ä¸ºå¼§å°¾çš„ç¬¬ä¸€ä¸ªå¼§ç»“ç‚¹
 } VNode, *VertexNode;
 
 typedef struct {
@@ -36,11 +36,11 @@ typedef PtrToENode Edge;
 CLGraph CreateGraph(int);
 void InsertEdge(CLGraph, Edge); 
 CLGraph BuildGraph();
-// ·µ»Ø½áµãµÄÈë¶ÈÊı 
+// è¿”å›ç»“ç‚¹çš„å…¥åº¦æ•° 
 int GetVerInDge(CLGraph, Vertex);
-// ·µ»Ø½áµãµÄ³ö¶ÈÊı 
+// è¿”å›ç»“ç‚¹çš„å‡ºåº¦æ•° 
 int GetVerOutDge(CLGraph, Vertex);
-// ÅĞ¶Ï¸ÃÓĞÏòÍ¼ÊÇ·ñÓĞ»· 
+// åˆ¤æ–­è¯¥æœ‰å‘å›¾æ˜¯å¦æœ‰ç¯ 
 bool Exist_Loop(CLGraph);
 
 main () {
@@ -52,10 +52,10 @@ main () {
 }
 
 bool Exist_Loop(CLGraph Graph) {
-	// ×ÜÌåË¼Â·: ÓÉÓÚÍØÆËÅÅĞòÃ¿´ÎÊä³öµÄ¶¼ÊÇÈë¶ÈÎª0µÄ½áµã
-	// ¿ÉÒÔÓÃ IndgreeÊı×é±£´æÃ¿¸ö½áµãµÄÈë¶È£¬ÓÃ¶ÓÁĞq±£´æÈë¶ÈÒÑ¾­Îª0µÄ½áµã 
-	// ÀûÓÃBFS£¬Ã¿Êä³öÒ»¸öÈë¶ÈÎª0µÄ½áµã£¬¾Í°ÑËüËùÖ¸ÏòµÄ½áµãµÄÈë¶È¼õÒ»£¬Í¬Ê±
-	// ¼ì²éËüÃÇµÄÈë¶ÈÓĞÃ»ÓĞ±äÎª0£¬Èç¹ûÓĞ¾ÍÈë¶Ó 
+	// æ€»ä½“æ€è·¯: ç”±äºæ‹“æ‰‘æ’åºæ¯æ¬¡è¾“å‡ºçš„éƒ½æ˜¯å…¥åº¦ä¸º0çš„ç»“ç‚¹
+	// å¯ä»¥ç”¨ Indgreeæ•°ç»„ä¿å­˜æ¯ä¸ªç»“ç‚¹çš„å…¥åº¦ï¼Œç”¨é˜Ÿåˆ—qä¿å­˜å…¥åº¦å·²ç»ä¸º0çš„ç»“ç‚¹ 
+	// åˆ©ç”¨BFSï¼Œæ¯è¾“å‡ºä¸€ä¸ªå…¥åº¦ä¸º0çš„ç»“ç‚¹ï¼Œå°±æŠŠå®ƒæ‰€æŒ‡å‘çš„ç»“ç‚¹çš„å…¥åº¦å‡ä¸€ï¼ŒåŒæ—¶
+	// æ£€æŸ¥å®ƒä»¬çš„å…¥åº¦æœ‰æ²¡æœ‰å˜ä¸º0ï¼Œå¦‚æœæœ‰å°±å…¥é˜Ÿ 
 	Vertex V;
 	queue<Vertex> q;
 	Vertex Indgree[Graph->Nv];
@@ -109,10 +109,10 @@ CLGraph BuildGraph() {
 }
 
 void InsertEdge(CLGraph Graph, Edge E) {
-	// <V, W> Í·²å·¨ 
-	// Ã¿´Î¼ÓÈëÒ»Ìõ±ß£¬ĞèÒª×öÒÔÏÂÊÂÇé
-	// 1.¸üĞÂGraph->G[V]µÄFirstOutËùÖ¸ÏòµÄÁ´±í 
-	// 2.¸üĞÂGraph->G[W]µÄFirstInËùÖ¸ÏòµÄÁ´±í 
+	// <V, W> å¤´æ’æ³• 
+	// æ¯æ¬¡åŠ å…¥ä¸€æ¡è¾¹ï¼Œéœ€è¦åšä»¥ä¸‹äº‹æƒ…
+	// 1.æ›´æ–°Graph->G[V]çš„FirstOutæ‰€æŒ‡å‘çš„é“¾è¡¨ 
+	// 2.æ›´æ–°Graph->G[W]çš„FirstInæ‰€æŒ‡å‘çš„é“¾è¡¨ 
 	ArcNode Node = new (ANode);
 	Node->TailVex = E->V;
 	Node->HeadVex = E->W;
@@ -130,7 +130,7 @@ CLGraph CreateGraph(int VertexNum) {
 	Vertex V;
 	for (V = 0; V < Graph->Nv; V++) {
 		Graph->G[V].Vex = V;
-		// ¸øFirstIn ºÍ FirstOutÔö¼ÓÒ»¸ö¿ÕµÄÍ·½áµã 
+		// ç»™FirstIn å’Œ FirstOutå¢åŠ ä¸€ä¸ªç©ºçš„å¤´ç»“ç‚¹ 
 		Graph->G[V].FirstIn = new (ANode);
 		Graph->G[V].FirstIn->HeadVex = V;
 		Graph->G[V].FirstIn->TailVex = -1;

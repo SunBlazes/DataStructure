@@ -36,7 +36,6 @@ CDLinkedList List_headInsert(CDLinkedList L) {
 	return L;
 }
 
-// 把h2连接到h1的后面 
 CDLinkedList List_Concat(CDLinkedList h1, CDLinkedList h2) {
 	if (h2->next == NULL) return h1;
 	CDLNode *tail_2 = h2->prev, *tail_1 = h1->prev;

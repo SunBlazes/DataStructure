@@ -1,7 +1,7 @@
 #include<stdio.h>
 #define MaxSize 100
 
-// ´ÓÏÂ±ê1¿ªÊ¼ ÇÒÄ©Î²²»ÓÃ'\0'½áÊø 
+// ä»ä¸‹æ ‡1å¼€å§‹ ä¸”æœ«å°¾ä¸ç”¨'\0'ç»“æŸ 
 typedef struct {
 	char ch[MaxSize];
 	int length;

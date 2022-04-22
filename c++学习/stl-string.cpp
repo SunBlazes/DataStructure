@@ -2,7 +2,7 @@
 #include<string>
 using namespace std;
 
-// ¹¹Ôìº¯Êý
+// æž„é€ å‡½æ•°
 void test01() {
 	string str;
 	
@@ -15,7 +15,7 @@ void test01() {
 	cout<<str3;
 } 
 
-// ¸³ÖµÔËËã 
+// èµ‹å€¼è¿ç®— 
 void test02() {
 	string str1 = "hello ", str2 = "world";
 	str1 = str2;
@@ -29,7 +29,7 @@ void test02() {
 	cout<<str1<<endl;
 }
 
-// Æ´½ÓÔËËã
+// æ‹¼æŽ¥è¿ç®—
 void test03() {
 	string str1 = "hello ", str2 = "world";
 	str1 += str2;
@@ -50,11 +50,11 @@ void test03() {
 	cout<<str1<<endl;
 } 
 
-// ²éÕÒºÍÌæ»»
+// æŸ¥æ‰¾å’Œæ›¿æ¢
 void test04() {
 	string str = "abcdabc";
 	
-	// ²éÕÒ¶àÉÙ¸ö"abc"
+	// æŸ¥æ‰¾å¤šå°‘ä¸ª"abc"
 //	int n = 0, loca = 0;
 //	string find_str = "abc";
 //	do {
@@ -72,16 +72,16 @@ void test04() {
 	int pos = str.rfind("abc", str.length() - 1);
 	cout<<pos<<endl;
 	
-	// ´ÓstrµÄµÚ5Î»ÖÃÕÒabc×Ö·û´®µÄÇ°1¸ö×Ö·û 
+	// ä»Žstrçš„ç¬¬5ä½ç½®æ‰¾abcå­—ç¬¦ä¸²çš„å‰1ä¸ªå­—ç¬¦ 
 	pos = str.find("abc", 5, 1); 
 	cout<<pos<<endl;
 	
-	// ´Ó3ºÅÎ»ÖÃÑ¡È¡1¸ö×Ö·û´®À´±»"DDDDD"´úÌæ 
+	// ä»Ž3å·ä½ç½®é€‰å–1ä¸ªå­—ç¬¦ä¸²æ¥è¢«"DDDDD"ä»£æ›¿ 
 	str.replace(3, 1, "DDDDD");
 	cout<<str<<endl;
 } 
 
-// ×Ö·û´®±È½Ï
+// å­—ç¬¦ä¸²æ¯”è¾ƒ
 void test05() {
 	string str1 = "abc", str2 = "abc";
 	cout<<str1.compare(str2)<<endl;
@@ -93,7 +93,7 @@ void test05() {
 	cout<<str1.compare(str2)<<endl;
 } 
 
-// ×Ö·û´æÈ¡
+// å­—ç¬¦å­˜å–
 void test06() {
 	string str = "hello world";
 	cout<<str[4]<<endl;
@@ -106,7 +106,7 @@ void test06() {
 	cout<<str[4]<<endl;
 } 
 
-// ²åÈëÓëÉ¾³ý 
+// æ’å…¥ä¸Žåˆ é™¤ 
 void test07() {
 	string str = "hello world";
 	
@@ -123,7 +123,7 @@ void test07() {
 	cout<<str<<endl;
 }
 
-// ×Ö´®»ñÈ¡
+// å­—ä¸²èŽ·å–
 void test08() {
 	string str = "hello world!";
 	cout<<str.substr(0, 7)<<endl;
@@ -137,7 +137,7 @@ void test08() {
 	cout<<QQ_Number<<'@'<<Mail_Type<<"."<<suffix<<endl;
 }
  
-main () {
+int main () {
 //	test01();
 //	test02();
 //	test03();

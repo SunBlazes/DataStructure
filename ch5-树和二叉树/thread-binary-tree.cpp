@@ -10,7 +10,7 @@ typedef struct ThreadNode {
 	int ltag, rtag;
 } ThreadNode, *ThreadTree;
 
-// ÏÈĞò½¨Á¢¶ş²æÊ÷ 
+// å…ˆåºå»ºç«‹äºŒå‰æ ‘ 
 ThreadTree createTree();
 void traverseByMidOrder(ThreadTree);
 ThreadTree createThreadNode();
@@ -19,7 +19,7 @@ void ThreadifyNode(ThreadNode*, ThreadNode**);
 ThreadNode* FirstNode(ThreadNode*);
 ThreadNode* NextNode(ThreadNode*);
 void traverseByThread(ThreadTree);
-// ÕÒµ½Ö¸¶¨µÄ½áµãÔÚºóĞò±éÀúµÄÇ°¼Ì½áµã 
+// æ‰¾åˆ°æŒ‡å®šçš„ç»“ç‚¹åœ¨ååºéå†çš„å‰ç»§ç»“ç‚¹ 
 ThreadNode* ch5_533_18(ThreadNode*);
 
 void test() {
@@ -37,15 +37,15 @@ int main () {
 
 ThreadNode* ch5_533_18(ThreadNode* p) {
 	if (!p) return NULL;
-	// Èç¹ûÒ»¸ö½áµãÓĞÓÒº¢×Ó£¬ÄÇÃ´ºóĞò±éÀúÇ°¼Ì½áµã±Ø¶¨ÊÇËüµÄÓÒº¢×Ó 
+	// å¦‚æœä¸€ä¸ªç»“ç‚¹æœ‰å³å­©å­ï¼Œé‚£ä¹ˆååºéå†å‰ç»§ç»“ç‚¹å¿…å®šæ˜¯å®ƒçš„å³å­©å­ 
 	if (p->rtag == 0) {
 		return p->rchild;
 	}
-	// Èç¹û×óº¢×Ó´æÔÚÓÒº¢×Ó²»´æÔÚ£¬ÄÇÃ´ºóĞò±éÀúÇ°¼Ì½áµã±Ø¶¨ÊÇËüµÄ×óº¢×Ó 
+	// å¦‚æœå·¦å­©å­å­˜åœ¨å³å­©å­ä¸å­˜åœ¨ï¼Œé‚£ä¹ˆååºéå†å‰ç»§ç»“ç‚¹å¿…å®šæ˜¯å®ƒçš„å·¦å­©å­ 
 	if (p->ltag == 0 && p->rtag == 1) {
 		return p->lchild;
 	}
-	// ×óÓÒº¢×Ó¶¼²»´æÔÚ£¬ÄÇÃ´Ç°¼Ì½áµãÓ¦¸ÃÊÇË«Ç×½áµãµÄ×óº¢×Ó 
+	// å·¦å³å­©å­éƒ½ä¸å­˜åœ¨ï¼Œé‚£ä¹ˆå‰ç»§ç»“ç‚¹åº”è¯¥æ˜¯åŒäº²ç»“ç‚¹çš„å·¦å­©å­ 
 	ThreadNode *q = p;
 	for (; q && q->ltag; q = q->lchild);
 	if (q) {
@@ -64,8 +64,8 @@ void traverseByThread(ThreadTree T) {
 }
 
 ThreadNode* NextNode(ThreadNode* node) {
-	// ×ó×ÓÊ÷Îª¿ÕµÄ½áµãÏÂÒ»¸ö½áµãÒªÃ´ÊÇËüµÄÓÒ×ÓÊ÷×î×óÏÂµÄ½áµã 
-	// ÒªÃ´ÊÇËüµÄºó¼ÌÏßË÷½áµã 
+	// å·¦å­æ ‘ä¸ºç©ºçš„ç»“ç‚¹ä¸‹ä¸€ä¸ªç»“ç‚¹è¦ä¹ˆæ˜¯å®ƒçš„å³å­æ ‘æœ€å·¦ä¸‹çš„ç»“ç‚¹ 
+	// è¦ä¹ˆæ˜¯å®ƒçš„åç»§çº¿ç´¢ç»“ç‚¹ 
 	if (node->rtag == 0) {
 		return FirstNode(node->rchild);
 	} else {
@@ -74,7 +74,7 @@ ThreadNode* NextNode(ThreadNode* node) {
 }
 
 ThreadNode* FirstNode(ThreadNode* node) {
-	// µÚÒ»¸ö½áµã¿Ï¶¨ÊÇ×óº¢×ÓÎª¿ÕµÄ½áµã 
+	// ç¬¬ä¸€ä¸ªç»“ç‚¹è‚¯å®šæ˜¯å·¦å­©å­ä¸ºç©ºçš„ç»“ç‚¹ 
 	if (node) {
 		if (node->ltag == 1) {
 			return node;
@@ -86,8 +86,8 @@ ThreadNode* FirstNode(ThreadNode* node) {
 }
 
 /*
-	ThreadNode* node: Î´ÏßË÷»¯µÄ¶ş²æÊ÷½áµã 
-	ThreadNode** pre: ¶şÖØÖ¸Õë£¬Ö¸ÏòÇ°Ò»¸öÏßË÷»¯µÄ½áµã£¬Ò²±£Ö¤µİ¹éÕ»ÀïµÄº¯ÊıÓÃµÄÊÇÍ¬Ò»¸öpre 
+	ThreadNode* node: æœªçº¿ç´¢åŒ–çš„äºŒå‰æ ‘ç»“ç‚¹ 
+	ThreadNode** pre: äºŒé‡æŒ‡é’ˆï¼ŒæŒ‡å‘å‰ä¸€ä¸ªçº¿ç´¢åŒ–çš„ç»“ç‚¹ï¼Œä¹Ÿä¿è¯é€’å½’æ ˆé‡Œçš„å‡½æ•°ç”¨çš„æ˜¯åŒä¸€ä¸ªpre 
 */
 void ThreadifyNode(ThreadNode* node, ThreadNode **pre) {
 	if (node == NULL) return;
@@ -96,7 +96,7 @@ void ThreadifyNode(ThreadNode* node, ThreadNode **pre) {
 		node->ltag = 1;
 		node->lchild = *pre;
 	} 
-// Ó¦¶ÔÃ»ÓĞ³õÊ¼»¯ltag»òrtagµÄ²Ù×÷ 
+// åº”å¯¹æ²¡æœ‰åˆå§‹åŒ–ltagæˆ–rtagçš„æ“ä½œ 
 //	else {
 //		node->ltag = 0;
 //	}
@@ -105,7 +105,7 @@ void ThreadifyNode(ThreadNode* node, ThreadNode **pre) {
 			(*pre)->rtag = 1;
 			(*pre)->rchild = node;
 		} 
-// Ó¦¶ÔÃ»ÓĞ³õÊ¼»¯ltag»òrtagµÄ²Ù×÷
+// åº”å¯¹æ²¡æœ‰åˆå§‹åŒ–ltagæˆ–rtagçš„æ“ä½œ
 //		else {
 //			(*pre)->rtag = 0;
 //		}

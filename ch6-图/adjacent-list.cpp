@@ -11,7 +11,7 @@ typedef Vertex SetType[MaxVertexNum];
 
 typedef struct AdjVNode *PtrToAdjVNode;
 struct AdjVNode {
-	Vertex AdjV; // ÁÚ½ÓµãÏÂ±ê 
+	Vertex AdjV; // é‚»æ¥ç‚¹ä¸‹æ ‡ 
 	WeightType Weight;
 	PtrToAdjVNode Next;
 };
@@ -42,28 +42,28 @@ Vertex NextNeighbor(LGraph, Vertex, Vertex);
 void BFS(LGraph);
 void BFS_Handler(LGraph, Vertex, bool*);
 void DFS(LGraph);
-// ·Çµİ¹éÉî¶ÈÓÅÏÈ±éÀú 
+// éé€’å½’æ·±åº¦ä¼˜å…ˆéå† 
 void DFS1(LGraph, Vertex V = 0);
 void DFS_Handler(LGraph, Vertex, bool*);
-// Êä³ö½áµãVµ½½áµãWµÄËùÓĞ¼òµ¥Â·¾¶ 
+// è¾“å‡ºç»“ç‚¹Våˆ°ç»“ç‚¹Wçš„æ‰€æœ‰ç®€å•è·¯å¾„ 
 void OutputPath(LGraph, Vertex, Vertex);
 void OutputPath_Handler(LGraph, Vertex, Vertex, Vertex*, int count = 0);
-// Éî¶ÈÓÅÏÈ±éÀúÅĞ¶ÏÊÇ·ñÁ½¸ö½áµã´æÔÚÂ·¾¶ 
+// æ·±åº¦ä¼˜å…ˆéå†åˆ¤æ–­æ˜¯å¦ä¸¤ä¸ªç»“ç‚¹å­˜åœ¨è·¯å¾„ 
 bool Is_PathExist_Deep(LGraph, Vertex, Vertex);
 bool Is_PathExist_Deep_Handler(LGraph, Vertex, Vertex, bool*);
-// ¹ã¶ÈÓÅÏÈ±éÀúÅĞ¶ÏÊÇ·ñÁ½¸ö½áµã´æÔÚÂ·¾¶
+// å¹¿åº¦ä¼˜å…ˆéå†åˆ¤æ–­æ˜¯å¦ä¸¤ä¸ªç»“ç‚¹å­˜åœ¨è·¯å¾„
 bool Is_PathExist_Broad(LGraph, Vertex, Vertex);
-// ÅĞ¶ÏÎŞÏòÍ¼ÊÇ·ñÎªÊ÷ 
-bool Is_Tree(LGraph); // ²¢²é¼¯£¨Âé·³ÁË£© 
-bool Is_Tree1(LGraph); // ÏÈÅĞ¶ÏÂú×ã±ßÊı=¶¥µãÊı-1ÔÙÅĞ¶Ï±éÀúÒ»´Î£¬¿´Ò»ÏÂÊÇ²»ÊÇËùÓĞµãÒÑ¾­·ÃÎÊ¹ıÁË 
-// ÅĞ¶ÏÎŞÏòÍ¼ÊÇ·ñÎªÁ¬Í¨Í¼
+// åˆ¤æ–­æ— å‘å›¾æ˜¯å¦ä¸ºæ ‘ 
+bool Is_Tree(LGraph); // å¹¶æŸ¥é›†ï¼ˆéº»çƒ¦äº†ï¼‰ 
+bool Is_Tree1(LGraph); // å…ˆåˆ¤æ–­æ»¡è¶³è¾¹æ•°=é¡¶ç‚¹æ•°-1å†åˆ¤æ–­éå†ä¸€æ¬¡ï¼Œçœ‹ä¸€ä¸‹æ˜¯ä¸æ˜¯æ‰€æœ‰ç‚¹å·²ç»è®¿é—®è¿‡äº† 
+// åˆ¤æ–­æ— å‘å›¾æ˜¯å¦ä¸ºè¿é€šå›¾
 bool Is_ConnGraph(LGraph);
 void Is_ConnGraph_Connected(LGraph, SetType, Vertex, Vertex);
 Vertex Is_ConnGraph_Find(SetType, Vertex);
-// ÀûÓÃDFSÅĞ¶ÏÓĞÏòÍ¼ÊÇ·ñÓĞ»·
+// åˆ©ç”¨DFSåˆ¤æ–­æœ‰å‘å›¾æ˜¯å¦æœ‰ç¯
 bool Exist_Loop(LGraph); 
 void Exist_Loop_Handler(LGraph, Vertex, Vertex*, bool&); 
-// DFSÊä³öÍØÆËÅÅĞò 
+// DFSè¾“å‡ºæ‹“æ‰‘æ’åº 
 void OutputTopoSort(LGraph); 
 void OutputTopoSort_Handler(LGraph, Vertex, int&, bool*, int*);
 
@@ -85,11 +85,11 @@ main () {
 }
 
 void OutputTopoSort(LGraph Graph) {
-	// ×ÜÌåË¼Â·£ºÀûÓÃDFS£¬Ò»¸ö½áµãDFSµİ¹é½áÊøµ±ÇÒ½öµ±ËüÖ¸ÏòµÄËùÓĞ½áµãDFSµİ¹é½áÊø
-	// ÀûÓÃcnt¼ÇÂ¼Ã¿¸ö½áµãDFSµİ¹é½áÊøµÄÊ±¼ä£¬×îºó¸üĞÂµ½½áµã¶ÔÓ¦ÏÂ±êµÄÊı×éÀï
-	// why?ÒòÎªÍØÆËÅÅĞòÒªÇóÃ¿´ÎÊä³öÒ»¸öÈë¶ÈÎª0µÄ½áµã£¬Èë¶ÈÎª0ÒâÎ¶×ÅÖ¸ÏòËüµÄ½áµãÍê³ÉDFSµİ¹éÊ±¼ä±ÈËü¾Ã
-	// Ò²¾ÍÊÇÊ±¼äÔ½¾ÃµÄ½áµãÔ½ÔçÊä³ö 
-	// µ±Ã¿¸ö½áµã¼ÍÂ¼ÁËÍê³ÉDFSµİ¹éµÄÊ±¼ä£¬×îºó°´Ê±¼ä´ÓÍíµ½Ôç½øĞĞÊä³ö¶ÔÓ¦µÄ½áµã£¬¾ÍÊÇTopoSort 
+	// æ€»ä½“æ€è·¯ï¼šåˆ©ç”¨DFSï¼Œä¸€ä¸ªç»“ç‚¹DFSé€’å½’ç»“æŸå½“ä¸”ä»…å½“å®ƒæŒ‡å‘çš„æ‰€æœ‰ç»“ç‚¹DFSé€’å½’ç»“æŸ
+	// åˆ©ç”¨cntè®°å½•æ¯ä¸ªç»“ç‚¹DFSé€’å½’ç»“æŸçš„æ—¶é—´ï¼Œæœ€åæ›´æ–°åˆ°ç»“ç‚¹å¯¹åº”ä¸‹æ ‡çš„æ•°ç»„é‡Œ
+	// why?å› ä¸ºæ‹“æ‰‘æ’åºè¦æ±‚æ¯æ¬¡è¾“å‡ºä¸€ä¸ªå…¥åº¦ä¸º0çš„ç»“ç‚¹ï¼Œå…¥åº¦ä¸º0æ„å‘³ç€æŒ‡å‘å®ƒçš„ç»“ç‚¹å®ŒæˆDFSé€’å½’æ—¶é—´æ¯”å®ƒä¹…
+	// ä¹Ÿå°±æ˜¯æ—¶é—´è¶Šä¹…çš„ç»“ç‚¹è¶Šæ—©è¾“å‡º 
+	// å½“æ¯ä¸ªç»“ç‚¹çºªå½•äº†å®ŒæˆDFSé€’å½’çš„æ—¶é—´ï¼Œæœ€åæŒ‰æ—¶é—´ä»æ™šåˆ°æ—©è¿›è¡Œè¾“å‡ºå¯¹åº”çš„ç»“ç‚¹ï¼Œå°±æ˜¯TopoSort 
 	bool Visited[Graph->Nv] = {false};
 	int Time[Graph->Nv], cnt = 0;
 	Vertex V;
@@ -120,7 +120,7 @@ bool Exist_Loop(LGraph Graph) {
 	Vertex Colors[Graph->Nv];
 	Vertex V;
 	bool flag = false;
-	// Colors: -1:Î´·ÃÎÊ 0:ÒÑ¾­·ÃÎÊµ«Ã»ÓĞ´¦ÀíÍê°üº¬ËüÔÚÄÚµÄËùÓĞÂ·¾¶ 1:´¦ÀíÍê±Ï 
+	// Colors: -1:æœªè®¿é—® 0:å·²ç»è®¿é—®ä½†æ²¡æœ‰å¤„ç†å®ŒåŒ…å«å®ƒåœ¨å†…çš„æ‰€æœ‰è·¯å¾„ 1:å¤„ç†å®Œæ¯• 
 	for (V = 0; V < Graph->Nv; V++) Colors[V] = -1;
 	for (V = 0; V < Graph->Nv; V++) {
 		if (Colors[V] == -1) {
@@ -137,14 +137,14 @@ void Exist_Loop_Handler(LGraph Graph, Vertex V, Vertex* Colors, bool& flag) {
 	Colors[V] = 0;
 	for (Neighbor = FirstNeighbor(Graph, V); 
 		Neighbor != -1; Neighbor = NextNeighbor(Graph, V, Neighbor)) {
-		// Ã¿´Î·ÃÎÊÎ´ÔÚ´¦ÀíµÄÁÚ¾Ó 
+		// æ¯æ¬¡è®¿é—®æœªåœ¨å¤„ç†çš„é‚»å±… 
 		if (Colors[Neighbor] == -1) {
 			Colors[Neighbor] = 0;
 			Exist_Loop_Handler(Graph, Neighbor, Colors, flag);
 		}
-		// ·ÃÎÊµ½Î´´¦ÀíÍê±ÏµÄ½áµã£¬¿Ï¶¨´æÔÚ»ØÂ·
-		// Èç¹ûÕâ¸öÇé¿ö·¢Éú£¬ÉèÕâ¸ö½áµãÎªW£¬VËùÔÚµÄÂ·¾¶¿Ï¶¨ÒÑ¾­·ÃÎÊ¹ıW
-		// ÓÖ·ÃÎÊ´ú±íVËùÔÚµÄÂ·¾¶ÓÖÓĞÒ»Ìõµ½WµÄÂ·¾¶£¬V->W->W
+		// è®¿é—®åˆ°æœªå¤„ç†å®Œæ¯•çš„ç»“ç‚¹ï¼Œè‚¯å®šå­˜åœ¨å›è·¯
+		// å¦‚æœè¿™ä¸ªæƒ…å†µå‘ç”Ÿï¼Œè®¾è¿™ä¸ªç»“ç‚¹ä¸ºWï¼ŒVæ‰€åœ¨çš„è·¯å¾„è‚¯å®šå·²ç»è®¿é—®è¿‡W
+		// åˆè®¿é—®ä»£è¡¨Væ‰€åœ¨çš„è·¯å¾„åˆæœ‰ä¸€æ¡åˆ°Wçš„è·¯å¾„ï¼ŒV->W->W
 		else if (!Colors[Neighbor]) {
 			flag = true;
 			return;
@@ -157,7 +157,7 @@ bool Is_ConnGraph(LGraph Graph) {
 	SetType Set;
 	Vertex V;
 	for (V = 0; V < Graph->Nv; V++) Set[V] = -1;
-	// ±éÀúËùÓĞ±ß£¨Á½´Î£© 
+	// éå†æ‰€æœ‰è¾¹ï¼ˆä¸¤æ¬¡ï¼‰ 
 	for (V = 0; V < Graph->Nv; V++) {
 		Vertex Neighbor;
 		for (Neighbor = FirstNeighbor(Graph, V); Neighbor >= 0; 
@@ -165,7 +165,7 @@ bool Is_ConnGraph(LGraph Graph) {
 			Is_ConnGraph_Connected(Graph, Set, V, Neighbor);
 		}
 	}
-	int count = 0;// -1µÄ¸öÊı 
+	int count = 0;// -1çš„ä¸ªæ•° 
 	for (V = 0; V < Graph->Nv; V++) {
 //		cout<<Set[V]<<" ";
 		if (Set[V] == -1) count++;
@@ -189,7 +189,7 @@ Vertex Is_ConnGraph_Find(SetType Set, Vertex V) {
 	if (Ancestor == -1) {
 		return V;
 	}
-	// Â·¾¶Ñ¹Ëõ 
+	// è·¯å¾„å‹ç¼© 
 	return Set[V] = Is_ConnGraph_Find(Set, Set[V]);
 }
 
@@ -199,7 +199,7 @@ bool Is_Tree(LGraph Graph){
 }
 
 bool Is_Tree1(LGraph Graph) {
-	// ¼òµ¥Í¼(Ö»¿¼ÂÇ¼òµ¥Í¼£¬Ä¬ÈÏ³ÉÁ¢)+Á¬Í¨Í¼+(¶¥µãÊı=±ßÊı+1)=>´ËÍ¼ÎªÊ÷ 
+	// ç®€å•å›¾(åªè€ƒè™‘ç®€å•å›¾ï¼Œé»˜è®¤æˆç«‹)+è¿é€šå›¾+(é¡¶ç‚¹æ•°=è¾¹æ•°+1)=>æ­¤å›¾ä¸ºæ ‘ 
 	if (!(Graph->Nv == Graph->Ne + 1)) return false;
 	bool Visited[Graph->Nv] = {false};
 	Vertex V;
@@ -250,8 +250,8 @@ bool Is_PathExist_Deep_Handler(LGraph Graph, Vertex V, Vertex W, bool* Visited) 
 }
 
 void DFS1(LGraph Graph, Vertex V) {
-	// ×ÜÌåË¼Â·£ºÀûÓÃÕ»ÊµÏÖ·Çµİ¹éµÄDFS£¬Ã¿´Î·ÃÎÊÒ»¸ö½áµã£¬¾Í°Ñ¸Ã½áµãÏàÁ¬µÄ½áµãÍÆÈëÕ»
-	// ÄÇÃ´ÏÂ´Î·ÃÎÊµÄ¾ÍÊÇÕâ¸ö½áµãÏàÁ¬µÄ½áµã 
+	// æ€»ä½“æ€è·¯ï¼šåˆ©ç”¨æ ˆå®ç°éé€’å½’çš„DFSï¼Œæ¯æ¬¡è®¿é—®ä¸€ä¸ªç»“ç‚¹ï¼Œå°±æŠŠè¯¥ç»“ç‚¹ç›¸è¿çš„ç»“ç‚¹æ¨å…¥æ ˆ
+	// é‚£ä¹ˆä¸‹æ¬¡è®¿é—®çš„å°±æ˜¯è¿™ä¸ªç»“ç‚¹ç›¸è¿çš„ç»“ç‚¹ 
 	stack<Vertex> s;
 	bool Visited[Graph->Nv] = {false};
 	Visited[V] = true;
@@ -275,7 +275,7 @@ void OutputPath(LGraph Graph, Vertex V, Vertex W) {
 	OutputPath_Handler(Graph, V, W, Path);
 }
 
-// count´ú±íVµ½WÒÑ¾­ÓĞcount¸ö½áµãÁË£¬·½±ã°ÑÂ·¾¶ÖĞÏÂÒ»¸ö½áµã°´Ë³Ğò·ÅÖÃµ½ºÏÊÊµÄÎ»ÖÃ 
+// countä»£è¡¨Våˆ°Wå·²ç»æœ‰countä¸ªç»“ç‚¹äº†ï¼Œæ–¹ä¾¿æŠŠè·¯å¾„ä¸­ä¸‹ä¸€ä¸ªç»“ç‚¹æŒ‰é¡ºåºæ”¾ç½®åˆ°åˆé€‚çš„ä½ç½® 
 void OutputPath_Handler(LGraph Graph, Vertex V, Vertex W, Vertex* Path, int count) {
 	Vertex Neighbor;
 	Path[count++] = V;
@@ -289,7 +289,7 @@ void OutputPath_Handler(LGraph Graph, Vertex V, Vertex W, Vertex* Path, int coun
 	for (Neighbor = FirstNeighbor(Graph, V); 
 		Neighbor >= 0; Neighbor = NextNeighbor(Graph, V, Neighbor)) {
 		int i;
-		for (i = 0; i < count && Path[i] != Neighbor; i++);//±£Ö¤ÁËÃ»ÓĞ»ØÂ· 
+		for (i = 0; i < count && Path[i] != Neighbor; i++);//ä¿è¯äº†æ²¡æœ‰å›è·¯ 
 		if (i == count) {
 			OutputPath_Handler(Graph, Neighbor, W, Path, count);
 		}
@@ -314,7 +314,7 @@ void InsertEdge(LGraph Graph, Edge E) {
 	Node->Next = Graph->G[E->V].FirstEdge;
 	Graph->G[E->V].FirstEdge = Node;
 	
-	/* ÎŞÏòÍ¼µÄ²åÈë */
+	/* æ— å‘å›¾çš„æ’å…¥ */
 //	Node = new (struct AdjVNode);
 //	Node->AdjV = E->V;
 //	Node->Weight = E->Weight;

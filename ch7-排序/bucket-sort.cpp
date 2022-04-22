@@ -4,7 +4,7 @@
 #include<math.h>
 using namespace std;
 
-// ·µ»Ø´ıÅÅÊı×éµÄ×î´óÎ»Êı 
+// è¿”å›å¾…æ’æ•°ç»„çš„æœ€å¤§ä½æ•° 
 int MaxBit(int* A, int n) {
 	int bit = 1;
 	int i = 0;
@@ -19,7 +19,7 @@ int MaxBit(int* A, int n) {
 	return bit;
 }
 
-// »ùÊıÅÅĞò
+// åŸºæ•°æ’åº
 void Radix_Sort(int* A, int n) {
 	int max_bit = MaxBit(A, n);
 	int count[n] = {0};

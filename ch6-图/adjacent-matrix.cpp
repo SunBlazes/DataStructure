@@ -9,8 +9,8 @@ typedef int WeightType;
 
 typedef struct GNode *PtrToGNode;
 struct GNode {
-	int Nv; // ¶¥µãÊı
-	int Ne; // ±ßÊı
+	int Nv; // é¡¶ç‚¹æ•°
+	int Ne; // è¾¹æ•°
 	WeightType G[MaxVertexNum][MaxVertexNum];
 };
 typedef PtrToGNode MGraph;
@@ -39,28 +39,28 @@ void BFSTraverse(MGraph);
 void BFS(MGraph, Vertex, bool*);
 void DFSTraverse(MGraph);
 void DFS(MGraph, Vertex, bool*);
-// ÅĞ¶ÏÍ¼ÊÇ·ñ´æÔÚ±ß 
+// åˆ¤æ–­å›¾æ˜¯å¦å­˜åœ¨è¾¹ 
 bool Adjacent(MGraph, Vertex, Vertex);
-// ÁĞ³ö¸ø¶¨½áµãµÄÁÚ½ÓµÄ±ß 
+// åˆ—å‡ºç»™å®šç»“ç‚¹çš„é‚»æ¥çš„è¾¹ 
 void Neighbors(MGraph, Vertex);
 Vertex FirstNeighbor(MGraph, Vertex);
 Vertex NextNeighbor(MGraph, Vertex, Vertex); 
-// µ¥Ô´ÎŞÈ¨×î¶ÌÂ·¾¶ 
+// å•æºæ— æƒæœ€çŸ­è·¯å¾„ 
 void ShortestPath(MGraph);
 void ShortestPath_Handler(MGraph, Vertex*, int*);
-// µ¥Ô´ÓĞÈ¨×î¶ÌÂ·¾¶ 
+// å•æºæœ‰æƒæœ€çŸ­è·¯å¾„ 
 void Dijkstra(MGraph);
 void Dijkstra_Handler(MGraph, Vertex*, int*);
-// ¶àÔ´ÓĞÈ¨×î¶ÌÂ·¾¶ 
+// å¤šæºæœ‰æƒæœ€çŸ­è·¯å¾„ 
 void Floyd(MGraph); 
-// ×îĞ¡Éú³ÉÊ÷£ºÆÕÀïÄ· ÊÊÓÃÓÚ³íÃÜÍ¼ 
+// æœ€å°ç”Ÿæˆæ ‘ï¼šæ™®é‡Œå§† é€‚ç”¨äºç¨ å¯†å›¾ 
 void Prim(MGraph);
 bool Prim_Handler(MGraph, Vertex*, int*);
-// Éú³É×îĞ¡¶Ñ 
+// ç”Ÿæˆæœ€å°å † 
 MinHeap CreateMinHeap(int);
 void MinHeap_Insert(MinHeap, Edge);
 Edge MinHeap_Delete(MinHeap);
-// ½¨Á¢²¢²é¼¯ 
+// å»ºç«‹å¹¶æŸ¥é›† 
 void Set_Init(SetType, MGraph);
 void Set_Connect(SetType, Edge);
 Vertex Set_Find(SetType, Vertex);
@@ -83,19 +83,19 @@ main() {
 } 
 
 void Kruskal(MGraph Graph, MinHeap H, SetType Set) {
-	// Ë¼Â·: KruskalË¼Â·ÊÇÃ¿´ÎÑ¡³öÒ»Ìõ×îµÍ»¨ÏúµÄ±ß 
-	// »¹±ØĞëÕâÌõ±ß²»ÄÜºÍÒÑ¾­ÊÕÄÉµÄ±ß²úÉú»ØÂ·
-	// ÕâÀïµÄ¹Ø¼ü¾ÍÊÇÔõÃ´Ìô³ö×îµÍ»¨ÏúµÄ±ßºÍÔõÃ´ÅĞ¶ÏÑ¡³öµÄ±ßÊÇ·ñ»á²úÉú»ØÂ·
-	// 1.²ÉÓÃ×îĞ¡¶Ñ£¬Ã¿´Î¶¼µ¯³ö×îµÍ»¨ÏúµÄ±ß£¬Ï¡ÊèÍ¼£¬Ê±¼ä¸´ÔÓ¶ÈÎª£ºO(logE) 
-	// 2.²ÉÓÃ²¢²é¼¯¡£¿ªÊ¼Ê±£¬Ã¿¸ö½áµã¶¼ÊÇÒ»¸ö¼¯ºÏ£¬µ±Ã¿´ÎÑ¡³öµÄ±ßµÄ¶Ëµã×æÏÈ½áµã²»Í¬Ê±£¬
-	//   ÎÒÃÇÈÏÎªÌí¼ÓÕâÌõ±ß²»»á²úÉú»ØÂ·£¬ÔòÈ¡±ßµÄÁ½¸ö½áµãµÄ×æÏÈ½áµãµÄ×îĞ¡ÏÂ±ê×÷ÎªËû
-	//   ÃÇµÄ¹²Í¬×æÏÈ½áµã¡£±ÈÈça[0]=-1£¬a[1]=-1£¬a[2]=1£¬a[3]=0£¬±ßÎª(0, 2)£¬Ôò¾­¹ıÕâ²Ù×÷£¬
-	//   a[0]=-1£¬a[1]=0£¬Èç¹ûÏÂ´Î±ßÎª(1, 3)£¬Í¨¹ıµü´úµÃµ½ËûÃÇµÄÁ½¸ö×æÏÈ½áµã¸ÕºÃ¶¼ÊÇ0£¬
-	//   ÔòÁ¬½Ó1ºÍ3±Ø¶¨»á²úÉú»ØÂ·¡£ÕâÀï¿ÉÒÔÃ¿´Î²éÕÒÄ³¸ö½áµãµÄ×æÏÈ½áµãµÄÍ¬Ê±£¬°Ñ¸ÃÂ·¾¶ÉÏµÄ½áµãµÄ×æÏÈ½áµã
-	//   ¶¼ÉèÖÃ×îºóÕÒµ½µÄ×æÏÈ½áµã£¬ÕâÑùÒ»À´£¬ÅĞ¶Ï»ØÂ·µÄÊ±¼ä¸´ÔÓ¶È¾ÍÎªO(1)
-	// ×Ü½áÀ´¿´£¬KruskalËã·¨Ö÷ÒªÊÜ±ßÊıÓ°Ïì 
-	int count = 0; // ¼ÇÂ¼±ßÊı 
-	// Ê÷µÄ±ØÒªÌõ¼şÊÇ¶¥µãÊı=±ßÊı+1 
+	// æ€è·¯: Kruskalæ€è·¯æ˜¯æ¯æ¬¡é€‰å‡ºä¸€æ¡æœ€ä½èŠ±é”€çš„è¾¹ 
+	// è¿˜å¿…é¡»è¿™æ¡è¾¹ä¸èƒ½å’Œå·²ç»æ”¶çº³çš„è¾¹äº§ç”Ÿå›è·¯
+	// è¿™é‡Œçš„å…³é”®å°±æ˜¯æ€ä¹ˆæŒ‘å‡ºæœ€ä½èŠ±é”€çš„è¾¹å’Œæ€ä¹ˆåˆ¤æ–­é€‰å‡ºçš„è¾¹æ˜¯å¦ä¼šäº§ç”Ÿå›è·¯
+	// 1.é‡‡ç”¨æœ€å°å †ï¼Œæ¯æ¬¡éƒ½å¼¹å‡ºæœ€ä½èŠ±é”€çš„è¾¹ï¼Œç¨€ç–å›¾ï¼Œæ—¶é—´å¤æ‚åº¦ä¸ºï¼šO(logE) 
+	// 2.é‡‡ç”¨å¹¶æŸ¥é›†ã€‚å¼€å§‹æ—¶ï¼Œæ¯ä¸ªç»“ç‚¹éƒ½æ˜¯ä¸€ä¸ªé›†åˆï¼Œå½“æ¯æ¬¡é€‰å‡ºçš„è¾¹çš„ç«¯ç‚¹ç¥–å…ˆç»“ç‚¹ä¸åŒæ—¶ï¼Œ
+	//   æˆ‘ä»¬è®¤ä¸ºæ·»åŠ è¿™æ¡è¾¹ä¸ä¼šäº§ç”Ÿå›è·¯ï¼Œåˆ™å–è¾¹çš„ä¸¤ä¸ªç»“ç‚¹çš„ç¥–å…ˆç»“ç‚¹çš„æœ€å°ä¸‹æ ‡ä½œä¸ºä»–
+	//   ä»¬çš„å…±åŒç¥–å…ˆç»“ç‚¹ã€‚æ¯”å¦‚a[0]=-1ï¼Œa[1]=-1ï¼Œa[2]=1ï¼Œa[3]=0ï¼Œè¾¹ä¸º(0, 2)ï¼Œåˆ™ç»è¿‡è¿™æ“ä½œï¼Œ
+	//   a[0]=-1ï¼Œa[1]=0ï¼Œå¦‚æœä¸‹æ¬¡è¾¹ä¸º(1, 3)ï¼Œé€šè¿‡è¿­ä»£å¾—åˆ°ä»–ä»¬çš„ä¸¤ä¸ªç¥–å…ˆç»“ç‚¹åˆšå¥½éƒ½æ˜¯0ï¼Œ
+	//   åˆ™è¿æ¥1å’Œ3å¿…å®šä¼šäº§ç”Ÿå›è·¯ã€‚è¿™é‡Œå¯ä»¥æ¯æ¬¡æŸ¥æ‰¾æŸä¸ªç»“ç‚¹çš„ç¥–å…ˆç»“ç‚¹çš„åŒæ—¶ï¼ŒæŠŠè¯¥è·¯å¾„ä¸Šçš„ç»“ç‚¹çš„ç¥–å…ˆç»“ç‚¹
+	//   éƒ½è®¾ç½®æœ€åæ‰¾åˆ°çš„ç¥–å…ˆç»“ç‚¹ï¼Œè¿™æ ·ä¸€æ¥ï¼Œåˆ¤æ–­å›è·¯çš„æ—¶é—´å¤æ‚åº¦å°±ä¸ºO(1)
+	// æ€»ç»“æ¥çœ‹ï¼ŒKruskalç®—æ³•ä¸»è¦å—è¾¹æ•°å½±å“ 
+	int count = 0; // è®°å½•è¾¹æ•° 
+	// æ ‘çš„å¿…è¦æ¡ä»¶æ˜¯é¡¶ç‚¹æ•°=è¾¹æ•°+1 
 	while (count != Graph->Nv - 1 && H->size) {
 		Edge E = MinHeap_Delete(H);
 		if (Set_Find(Set, E->V) != Set_Find(Set, E->W)) {
@@ -105,7 +105,7 @@ void Kruskal(MGraph Graph, MinHeap H, SetType Set) {
 		}
 	} 
 	if (count != Graph->Nv - 1) {
-		cout<<"¸ÃÍ¼Îª²»Á¬Í¨Í¼£¬ÎŞ·¨²úÉú×îĞ¡Éú³ÉÊ÷"<<endl; 
+		cout<<"è¯¥å›¾ä¸ºä¸è¿é€šå›¾ï¼Œæ— æ³•äº§ç”Ÿæœ€å°ç”Ÿæˆæ ‘"<<endl; 
 	}
 }
 
@@ -131,7 +131,7 @@ void Set_Init(SetType Set, MGraph Graph) {
 	}
 }
 
-// ×îĞ¡¶ÑµÄÉ¾³ıºÍÖØÕû 
+// æœ€å°å †çš„åˆ é™¤å’Œé‡æ•´ 
 Edge MinHeap_Delete(MinHeap H) {
 	Edge MinE;
 	if (H->elements[1]) MinE = H->elements[1];
@@ -167,18 +167,18 @@ MinHeap CreateMinHeap(int Num) {
 	H->elements = new Edge[Num + 1];
 	H->elements[0] = new(ENode);
 	H->elements[0]->V = H->elements[0]->W = -1;
-	H->elements[0]->Weight = 1<<31; // ÉèÖÃÉÚ±ø 
+	H->elements[0]->Weight = 1<<31; // è®¾ç½®å“¨å…µ 
 	H->size = 0;
 	return H;
 }
 
 void Prim(MGraph Graph) {
-	// ×ÜÌåË¼Â·£ºÉèÖÃÒ»¸öÒÑ¾­ĞÎ³ÉµÄ×îĞ¡Éú³ÉÊ÷¼¯ºÏMST£¬³õÊ¼Îª¿Õ
-	// Ã¿´ÎÑ¡³öÒ»Ìõµ½Õâ¸ö×îĞ¡Éú³ÉÊ÷¾àÀë¿ªÏú×îĞ¡²¢ÇÒÎ´ÊÕÄÉµÄ±ß 
+	// æ€»ä½“æ€è·¯ï¼šè®¾ç½®ä¸€ä¸ªå·²ç»å½¢æˆçš„æœ€å°ç”Ÿæˆæ ‘é›†åˆMSTï¼Œåˆå§‹ä¸ºç©º
+	// æ¯æ¬¡é€‰å‡ºä¸€æ¡åˆ°è¿™ä¸ªæœ€å°ç”Ÿæˆæ ‘è·ç¦»å¼€é”€æœ€å°å¹¶ä¸”æœªæ”¶çº³çš„è¾¹ 
 	int dist[Graph->Nv] = {0}, Parent[Graph->Nv] = {-1};
 	Vertex Source = 0, V;
-	dist[Source] = 0; // ÊÕÄÉÔ´µã 
-	// ¸üĞÂµ½×îĞ¡Éú³ÉÊ÷µÄ¾àÀë 
+	dist[Source] = 0; // æ”¶çº³æºç‚¹ 
+	// æ›´æ–°åˆ°æœ€å°ç”Ÿæˆæ ‘çš„è·ç¦» 
 	for (V = Source + 1; V < Graph->Nv; V++) {
 		if (Graph->G[Source][V] != -1) {
 			Parent[V] = Source;
@@ -193,25 +193,25 @@ void Prim(MGraph Graph) {
 }
 
 bool Prim_Handler(MGraph Graph, Vertex* Parent, int* dist) {
-	int WPL = 0; // ×îĞ¡Éú³ÉÊ÷µÄÈ¨ÖØÖ®ºÍ 
+	int WPL = 0; // æœ€å°ç”Ÿæˆæ ‘çš„æƒé‡ä¹‹å’Œ 
 	while (1) {
 		Vertex V, W = -1, Neighbor;
 		int min_dist = Infinity;
-		// Ñ¡³öµ½MST×îĞ¡¾àÀëµÄ½áµã 
+		// é€‰å‡ºåˆ°MSTæœ€å°è·ç¦»çš„ç»“ç‚¹ 
 		for (V = 0; V < Graph->Nv; V++) {
 			if (dist[V] && dist[V] != Infinity && dist[V] < min_dist) {
 				min_dist = dist[V];
 				W = V;
 			}
 		}
-		// W==-1ÒâÎ¶×ÅÃ»ÓĞÒ»Ìõ±ß¿ÉÒÔµ½MST 
+		// W==-1æ„å‘³ç€æ²¡æœ‰ä¸€æ¡è¾¹å¯ä»¥åˆ°MST 
 		if (W == -1) break;
 		WPL += dist[W];
-		dist[W] = 0; // ÒâÎ¶×ÅÕâ¸ö½áµãÒÑ¾­ÊÕÄÉ½øMST£¬µ½MST¾àÀë×ÔÈ»Îª0 
-		// ĞÂ¼ÓÈëµÄ½áµã»áÒıÆğÒ»Ğ©½áµãµ½MSTµÄ¾àÀëµÄ¸üĞÂ 
+		dist[W] = 0; // æ„å‘³ç€è¿™ä¸ªç»“ç‚¹å·²ç»æ”¶çº³è¿›MSTï¼Œåˆ°MSTè·ç¦»è‡ªç„¶ä¸º0 
+		// æ–°åŠ å…¥çš„ç»“ç‚¹ä¼šå¼•èµ·ä¸€äº›ç»“ç‚¹åˆ°MSTçš„è·ç¦»çš„æ›´æ–° 
 		for (Neighbor = FirstNeighbor(Graph, W); Neighbor >= 0; 
 			Neighbor = NextNeighbor(Graph, W, Neighbor)) {
-				// ÖØµãÔÚdist[Neighbor]=0ÒâÎ¶×Å¸Ã½áµãÒÑ¾­ÔÚMST 
+				// é‡ç‚¹åœ¨dist[Neighbor]=0æ„å‘³ç€è¯¥ç»“ç‚¹å·²ç»åœ¨MST 
 			if (Graph->G[W][Neighbor] < dist[Neighbor] && dist[Neighbor]) {
 				dist[Neighbor] = Graph->G[W][Neighbor];
 				Parent[Neighbor] = W;
@@ -242,7 +242,7 @@ MGraph CreateGraph(int VertexNum) {
 void InsertEdge(MGraph Graph, Edge E) {
 	Vertex V = E->V, W = E->W;
 	Graph->G[V][W] = E->Weight;
-	Graph->G[W][V] = E->Weight; // ÎŞÏòÍ¼µÄ´¦Àí 
+	Graph->G[W][V] = E->Weight; // æ— å‘å›¾çš„å¤„ç† 
 }
 
 void DeleteEdge(MGraph Graph, Vertex V, Vertex W) {
@@ -286,7 +286,7 @@ Vertex NextNeighbor(MGraph Graph, Vertex V, Vertex W) {
 Vertex FirstNeighbor(MGraph Graph, Vertex V) {
 	Vertex W;
 	for (W = 0; W < Graph->Nv && Graph->G[V][W] == -1; W++);
-	if (W == Graph->Nv) return -1; // ÓëVÎŞÁÚ½ÓµÄµã 
+	if (W == Graph->Nv) return -1; // ä¸Væ— é‚»æ¥çš„ç‚¹ 
 	return W;
 }
 
@@ -343,7 +343,7 @@ void DFS(MGraph Graph, Vertex V, bool* Visited) {
 
 void ShortestPath(MGraph Graph) {
 	Vertex Path[Graph->Nv], V;
-	int dist[Graph->Nv];// ´ú±íÔ´µãµ½ÆäËû½áµãµÄ¾àÀë 
+	int dist[Graph->Nv];// ä»£è¡¨æºç‚¹åˆ°å…¶ä»–ç»“ç‚¹çš„è·ç¦» 
 	for (V = 0; V < Graph->Nv; V++) {
 		Path[V] = -1;
 		dist[V] = -1;
@@ -351,7 +351,7 @@ void ShortestPath(MGraph Graph) {
 	dist[0] = 0;
 	ShortestPath_Handler(Graph, Path, dist);
 	cout<<dist[3]<<endl;
-	/*  ÕıÏòÕÒµ½3µÄÂ·¾¶ 
+	/*  æ­£å‘æ‰¾åˆ°3çš„è·¯å¾„ 
 		Vertex W = 3;
 		stack<Vertex> s;
 		s.push(W);
@@ -367,7 +367,7 @@ void ShortestPath(MGraph Graph) {
 }
 
 void ShortestPath_Handler(MGraph Graph, Vertex* Path, int* dist) {
-	// ÀûÓÃBFS 
+	// åˆ©ç”¨BFS 
 	queue<Vertex> q;
 	Vertex source = 0;
 	q.push(source);
@@ -396,7 +396,7 @@ void Dijkstra(MGraph Graph) {
 	dist[0] = 0;
 	Dijkstra_Handler(Graph, Path, dist);
 	cout<<dist[5]<<endl;
-	/*  ÕıÏòÕÒµ½3µÄÂ·¾¶ 
+	/*  æ­£å‘æ‰¾åˆ°3çš„è·¯å¾„ 
 		Vertex W = 3;
 		stack<Vertex> s;
 		s.push(W);
@@ -431,10 +431,10 @@ void Dijkstra_Handler(MGraph Graph, Vertex* Path, int* dist) {
 }
 
 void Floyd(MGraph Graph) {
-	// ×ÜÌåË¼Â·£ºÓÃD^k[i][j]´ú±íiµ½jµÄ×î¶ÌÂ·¾¶£¬ÆäÖĞk´ú±í¾­¹ı¼ÓÈëÁËÏÂ±êÎª0->k-1µÄ½áµãºóiµ½jµÄ×î¶ÌÂ·¾¶ 
-	// D^-1[i][j]=InfinityËµÃ÷iµ½jÃ»ÓĞÖ±½ÓµÄ±ß£¬·ñÔòÓĞÒ»ÌõÖ±Á¬µÄ±ß
-	// kÃ¿´ÎÔö¼Ó£¬´ú±íÃ¿´Î¼ÓÈëÒ»¸ö½áµã£¬Èç¹ûÕâ¸ö½áµãÓ°Ïì×î¶ÌÂ·¾¶£¬Ôò¿Ï¶¨ÓĞ
-	// D^k[i][j]=D^(k-1)[i][k]+D^(k-1)[k][j]·ñÔòD^k[i][j]=D^(k-1)[i][j]
+	// æ€»ä½“æ€è·¯ï¼šç”¨D^k[i][j]ä»£è¡¨iåˆ°jçš„æœ€çŸ­è·¯å¾„ï¼Œå…¶ä¸­kä»£è¡¨ç»è¿‡åŠ å…¥äº†ä¸‹æ ‡ä¸º0->k-1çš„ç»“ç‚¹åiåˆ°jçš„æœ€çŸ­è·¯å¾„ 
+	// D^-1[i][j]=Infinityè¯´æ˜iåˆ°jæ²¡æœ‰ç›´æ¥çš„è¾¹ï¼Œå¦åˆ™æœ‰ä¸€æ¡ç›´è¿çš„è¾¹
+	// kæ¯æ¬¡å¢åŠ ï¼Œä»£è¡¨æ¯æ¬¡åŠ å…¥ä¸€ä¸ªç»“ç‚¹ï¼Œå¦‚æœè¿™ä¸ªç»“ç‚¹å½±å“æœ€çŸ­è·¯å¾„ï¼Œåˆ™è‚¯å®šæœ‰
+	// D^k[i][j]=D^(k-1)[i][k]+D^(k-1)[k][j]å¦åˆ™D^k[i][j]=D^(k-1)[i][j]
 	unsigned int D[Graph->Nv][Graph->Nv];
 	Vertex Path[Graph->Nv][Graph->Nv];
 	Vertex i, j;
@@ -457,7 +457,7 @@ void Floyd(MGraph Graph) {
 			}
 		}
 	}
-	/*  ÕıÏòÊä³ö µ½6µÄÂ·¾¶ 
+	/*  æ­£å‘è¾“å‡º åˆ°6çš„è·¯å¾„ 
 		Vertex Source = 0, W = 6;
 		stack<Vertex> s;
 		s.push(W);

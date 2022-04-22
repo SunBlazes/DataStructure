@@ -82,8 +82,8 @@ void test05() {
 	cout<<d[9]<<endl;
 	cout<<d.at(9)<<endl;
 	
-	cout<<d.front()<<endl;//�����׸�Ԫ��
-	cout<<d.back()<<endl;// ����ĩβԪ��
+	cout<<d.front()<<endl;
+	cout<<d.back()<<endl;
 }
 
 // 排序

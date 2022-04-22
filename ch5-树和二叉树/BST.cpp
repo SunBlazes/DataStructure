@@ -9,18 +9,18 @@ typedef struct _node {
 
 BSTree createBSTree();
 bool insertIntoBSTree(BSTree&, ElemType);
-// ·ÇµÝ¹éÊµÏÖ²åÈë 
+// éžé€’å½’å®žçŽ°æ’å…¥ 
 bool insertIntoBSTree1(BSTree, ElemType);
 void traverseByInOrder(BSTree);
 int getLevel(BSTree, int);
 void getMaxAndMin(BSTree, int&, int&);
-// ´Ó´óµ½Ð¡Êä³ö²»Ð¡ÓÚkµÄ¹Ø¼ü×Ö 
+// ä»Žå¤§åˆ°å°è¾“å‡ºä¸å°äºŽkçš„å…³é”®å­— 
 void ch5_5_5_10(BSTree, int);
 
 void test() {
 	BSTree T = createBSTree();
 	traverseByInOrder(T->lchild);
-	cout<<"data: 90ÔÚµÚ"<<getLevel(T->lchild, 90)<<"²ã\n";
+	cout<<"data: 90åœ¨ç¬¬"<<getLevel(T->lchild, 90)<<"å±‚\n";
 	int max, min;
 	getMaxAndMin(T, max, min);
 	cout<<"max: "<<max<<", min: "<<min<<endl;
@@ -65,13 +65,13 @@ int getLevel(BSTree T, int data) {
 }
 
 /*
-	BSTree Head: Í·½áµã£¬¼õÉÙÁË¶ÔµÚÒ»¸ö½áµãµÄ¶îÍâ´¦Àí 
-	ElemType data: ²åÈëÔªËØµÄÖµ	 
-	return bool: ÊÇ·ñ²åÈë³É¹¦ 
+	BSTree Head: å¤´ç»“ç‚¹ï¼Œå‡å°‘äº†å¯¹ç¬¬ä¸€ä¸ªç»“ç‚¹çš„é¢å¤–å¤„ç† 
+	ElemType data: æ’å…¥å…ƒç´ çš„å€¼	 
+	return bool: æ˜¯å¦æ’å…¥æˆåŠŸ 
 */
 bool insertIntoBSTree1(BSTree Head, ElemType data) {
 	BSTNode *pre = Head, *p = Head->lchild;
-	int dire = 0; //0´ú±í×óº¢×Ó 1´ú±íÓÒº¢×Ó 
+	int dire = 0; //0ä»£è¡¨å·¦å­©å­ 1ä»£è¡¨å³å­©å­ 
 	while (p) {
 		if (p->data == data) return false;
 		pre = p;
@@ -97,19 +97,19 @@ bool insertIntoBSTree1(BSTree Head, ElemType data) {
 }
 
 /*
-	BSTree &T: ÒýÓÃ£¬·½±ãÌí¼Ó½áµã
-	ElemType data: ²åÈëÔªËØµÄÖµ	 
-	return bool: ÊÇ·ñ²åÈë³É¹¦ 
+	BSTree &T: å¼•ç”¨ï¼Œæ–¹ä¾¿æ·»åŠ ç»“ç‚¹
+	ElemType data: æ’å…¥å…ƒç´ çš„å€¼	 
+	return bool: æ˜¯å¦æ’å…¥æˆåŠŸ 
 */
 bool insertIntoBSTree(BSTree &T, ElemType data) {
-	// ²åÈëµÄÎ»ÖÃ¶¼ÊÇÒ¶½ÚµãµÄ×óÓÒº¢×Ó 
+	// æ’å…¥çš„ä½ç½®éƒ½æ˜¯å¶èŠ‚ç‚¹çš„å·¦å³å­©å­ 
 	if (T == NULL) {
-		T = new(BSTNode); //ÕâÀï´«ÈëµÄTÊÇÒýÓÃÀàÐÍ 
+		T = new(BSTNode); //è¿™é‡Œä¼ å…¥çš„Tæ˜¯å¼•ç”¨ç±»åž‹ 
 		T->lchild = T->rchild = NULL;
 		T->data = data;
-		return true; //²åÈë³É¹¦ 
+		return true; //æ’å…¥æˆåŠŸ 
 	} else if (data == T->data) {
-		return false; // ÅÅÐò¶þ²æÊ÷ÒªÇó²»ÄÜÓÐÖØ¸´Öµ 
+		return false; // æŽ’åºäºŒå‰æ ‘è¦æ±‚ä¸èƒ½æœ‰é‡å¤å€¼ 
 	} else if (T->data > data) {
 		return insertIntoBSTree(T->lchild, data);
 	} else {

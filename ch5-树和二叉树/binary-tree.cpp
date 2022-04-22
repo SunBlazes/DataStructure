@@ -13,67 +13,67 @@ typedef struct _btree {
 } BiNode, *BiTree;
 
 BiNode* createBiTree();
-// ¼ÓÍ·½áµã 
+// åŠ å¤´ç»“ç‚¹ 
 BiNode* initBiTree();
 void traverseByLevelOrder(BiTree);
-// ´ÓÓÒÏò×ó 
+// ä»Žå³å‘å·¦ 
 void traverseByReLevelOrder(BiTree);
 void traverseByPreOrder(BiTree);
-// ·ÇµÝ¹éÏÈÐò 
+// éžé€’å½’å…ˆåº 
 void traverseByPreOrder1(BiTree);
-// ·ÇµÝ¹éÏÈÐò 
+// éžé€’å½’å…ˆåº 
 void traverseByPreOrder2(BiTree);
 void traverseByMidOrder(BiTree);
-// ·ÇµÝ¹éÖÐÐò 
+// éžé€’å½’ä¸­åº 
 void traverseByMidOrder1(BiTree);
-// ·ÇµÝ¹éÖÐÐò 
+// éžé€’å½’ä¸­åº 
 void traverseByMidOrder2(BiTree);
 void traverseByPostOrder(BiTree);
-// ·ÇµÝ¹éºóÐò 
+// éžé€’å½’åŽåº 
 void traverseByPostOrder1(BiTree);
-// µÝ¹éÇóÊ÷¸ß¶È 
+// é€’å½’æ±‚æ ‘é«˜åº¦ 
 int getHeight(BiTree);
-// ·ÇµÝ¹éÇóÊ÷¸ß¶È 
+// éžé€’å½’æ±‚æ ‘é«˜åº¦ 
 int getHeight1(BiTree);
 int getHeight2(BiTree);
 bool isCompleteTree(BiTree);
-// ÏÈÐòºÍÖÐÐòÐÎ³É¶þ²æÊ÷
+// å…ˆåºå’Œä¸­åºå½¢æˆäºŒå‰æ ‘
 BiTree PreAndIn(int[], int[], int);
 BiTree PreAndIn1(int[], int[], int, int);
 BiTree PreAndIn2(int[], int[], int, int, int, int);
-// Í³¼ÆË«·ÖÖ§½áµã¸öÊý 
+// ç»Ÿè®¡åŒåˆ†æ”¯ç»“ç‚¹ä¸ªæ•° 
 int countDoubleOffspringsOfNodes(BiTree);
-// ½»»»ËùÓÐ½áµãµÄ×óÓÒ×ÓÊ÷ 
+// äº¤æ¢æ‰€æœ‰ç»“ç‚¹çš„å·¦å³å­æ ‘ 
 BiTree swapLeftAndRightTree(BiTree);
 BiTree swapLeftAndRightTree1(BiTree);
-// µÃµ½ÏÈÐò±éÀúÐòÁÐµÄµÚkµÄ½áµãµÄdata 
+// å¾—åˆ°å…ˆåºéåŽ†åºåˆ—çš„ç¬¬kçš„ç»“ç‚¹çš„data 
 ElemType getDataByPreOrder(BiTree, int);
 void delTree(BiTree&); 
 bool findAndDeleteNodeWithX(BiTree, ElemType);
-// ´òÓ¡ÖµÎªxµÄËùÓÐ×æÏÈ½áµãµÄÖµ 
+// æ‰“å°å€¼ä¸ºxçš„æ‰€æœ‰ç¥–å…ˆç»“ç‚¹çš„å€¼ 
 bool printAncestors(BiTree, ElemType, bool&);
-// ÕÒµ½p,r×î½üµÄ¹«¹²×æÏÈ½áµã 
+// æ‰¾åˆ°p,ræœ€è¿‘çš„å…¬å…±ç¥–å…ˆç»“ç‚¹ 
 void Ancestor(BiNode*, BiNode*, BiNode*, BiNode*);
-// ·µ»Ø¿Õ½áµã 
+// è¿”å›žç©ºç»“ç‚¹ 
 BiNode* resEmptyNode();
-// ·µ»Ø¶þ²æÊ÷¾ßÓÐ½áµãÊý×î¶àµÄÄÇÒ»²ãµÄ½áµã¸öÊý 
-// ÂÖ»»Ê¹ÓÃÁ½¸ö¶ÓÁÐ 
+// è¿”å›žäºŒå‰æ ‘å…·æœ‰ç»“ç‚¹æ•°æœ€å¤šçš„é‚£ä¸€å±‚çš„ç»“ç‚¹ä¸ªæ•° 
+// è½®æ¢ä½¿ç”¨ä¸¤ä¸ªé˜Ÿåˆ— 
 int getBiTreeWidth(BiTree); 
-// ²åÈë¿Õ½áµãÀ´¸ô¿ªÃ¿Ò»²ãµÄ½áµã 
+// æ’å…¥ç©ºç»“ç‚¹æ¥éš”å¼€æ¯ä¸€å±‚çš„ç»“ç‚¹ 
 int getBiTreeWidth1(BiTree);
-// ½«Ò¶½áµã´Ó×óÏòÓÒÁ¬³ÉÒ»¸öµ¥Á´±í 
+// å°†å¶ç»“ç‚¹ä»Žå·¦å‘å³è¿žæˆä¸€ä¸ªå•é“¾è¡¨ 
 BiNode* linkAllLeafNodes(BiTree);
 BiNode* linkAllLeafNodes1(BiTree, BiNode*&);
-// ÅÐ¶ÏÁ½¸ö¶þ²æÊ÷ÊÇ·ñÏàËÆ 
+// åˆ¤æ–­ä¸¤ä¸ªäºŒå‰æ ‘æ˜¯å¦ç›¸ä¼¼ 
 bool is_SimilarTree(BiTree, BiTree);
 bool is_SimilarTree1(BiTree, BiTree);
-// ÔÚÂú¶þ²æÊ÷ÖÐ£¬ÒÑÖªÏÈÐòÐòÁÐÇóºóÐòÐòÁÐ 
+// åœ¨æ»¡äºŒå‰æ ‘ä¸­ï¼Œå·²çŸ¥å…ˆåºåºåˆ—æ±‚åŽåºåºåˆ— 
 void PreToPost(int[], int, int, int[], int, int);
-// ÖÐÐòºÍºóÐòÐÎ³É¶þ²æÊ÷ 
+// ä¸­åºå’ŒåŽåºå½¢æˆäºŒå‰æ ‘ 
 BiTree PostAndIn(int[], int[], int, int, int, int);
-// ÅÐ¶ÏÊÇ·ñÎª¶þ²æÅÅÐòÊ÷ 
+// åˆ¤æ–­æ˜¯å¦ä¸ºäºŒå‰æŽ’åºæ ‘ 
 bool is_BSTree(BiTree);
-// ÅÐ¶ÏÊÇ·ñÎªÆ½ºâ¶þ²æÊ÷ 
+// åˆ¤æ–­æ˜¯å¦ä¸ºå¹³è¡¡äºŒå‰æ ‘ 
 bool is_AVL(BiTree);
 void is_AVL1(BiTree, bool&, int&);
 
@@ -185,14 +185,14 @@ void is_AVL1(BiTree T, bool& balance, int& h) {
 		balance = true;
 		h = 1;
 	} else { 
-		// ÏÈ²Ù×÷×ó×ÓÊ÷ºÍÓÒ×ÓÊ÷£¬×ÔÏÂ¶øÉÏÖ´ÐÐ 
+		// å…ˆæ“ä½œå·¦å­æ ‘å’Œå³å­æ ‘ï¼Œè‡ªä¸‹è€Œä¸Šæ‰§è¡Œ 
 		is_AVL1(T->lchild, bl, hl);
 		is_AVL1(T->rchild, br, hr);
 		if (abs(hl - hr) > 1) {
 			balance = false;
 		} else {
-			// Âú×ãÁËÆ½ºâ¶þ²æÊ÷µÄ×ó×ÓÊ÷ºÍÓÒ×ÓÊ÷µÄ¸ß¶È²î²»ÄÜ´óÓÚ1
-			// »¹ÐèÂú×ã×óÓÒ×ÓÊ÷¶¼ÊÇÆ½ºâ¶þ²æÊ÷ 
+			// æ»¡è¶³äº†å¹³è¡¡äºŒå‰æ ‘çš„å·¦å­æ ‘å’Œå³å­æ ‘çš„é«˜åº¦å·®ä¸èƒ½å¤§äºŽ1
+			// è¿˜éœ€æ»¡è¶³å·¦å³å­æ ‘éƒ½æ˜¯å¹³è¡¡äºŒå‰æ ‘ 
 			balance = bl && br;
 		}
 		h = (hl > hr ? hl : hr) + 1;
@@ -223,20 +223,20 @@ bool is_BSTree(BiTree T) {
 }
 
 /*
-	pre[]: ÏÈÐòÊý×é
-	in[]: ÖÐÐòÊý×é
-	prel: ÏÈÐòÊý×éµÄÆðÊ¼Î»ÖÃ
-	prer: ÏÈÐòÊý×éµÄ½áÊøÎ»ÖÃ 
-	inl: ÖÐÐòÊý×éµÄÆðÊ¼Î»ÖÃ
-	inr: ÖÐÐòÊý×éµÄ½áÊøÎ»ÖÃ
+	pre[]: å…ˆåºæ•°ç»„
+	in[]: ä¸­åºæ•°ç»„
+	prel: å…ˆåºæ•°ç»„çš„èµ·å§‹ä½ç½®
+	prer: å…ˆåºæ•°ç»„çš„ç»“æŸä½ç½® 
+	inl: ä¸­åºæ•°ç»„çš„èµ·å§‹ä½ç½®
+	inr: ä¸­åºæ•°ç»„çš„ç»“æŸä½ç½®
 */
 BiTree PreAndIn2(int pre[], int in[], int prel, int prer, int inl, int inr) {
-	// ÐòºÅ:  0       1 2 3  4  5  6  7 8 9 10 11 12 13 14
+	// åºå·:  0       1 2 3  4  5  6  7 8 9 10 11 12 13 14
 	// pre:   1(prel) 2  4  6 11 12 13 14 7        3  5  8  9 10 15(prer)
 	// in:   11(inl)  6 13 12 14  4  7  2 1(pivot) 3  8 10  9  5 15(inr)
-	// ×ÜÌåË¼Â·ÊÇÓÉÏÈÐòÊý×éµÄÆðÊ¼Î»ÖÃµÄÖµÈ¥ÕÒµ½ÔÚÖÐÐòÊý×éµÄÎ»ÖÃpivot£¬¶ÔÏÈÐòºÍÖÐÐò½øÐÐ»®·Ö 
-	// ÄÇÃ´pivot½«ÏÈÐò·Ö³Éprel(¸ù)prel+1~pivot-inl+prel(×ó×ÓÊ÷½áµã)pivot-inl+prel+1~prer(ÓÒ×ÓÊ÷½áµã)
-	// ÖÐÐò·Ö³Éinl~pivot-1(×ó×ÓÊ÷½áµã)pivot(¸ù)pivot+1~inr(ÓÒ×ÓÊ÷½áµã)
+	// æ€»ä½“æ€è·¯æ˜¯ç”±å…ˆåºæ•°ç»„çš„èµ·å§‹ä½ç½®çš„å€¼åŽ»æ‰¾åˆ°åœ¨ä¸­åºæ•°ç»„çš„ä½ç½®pivotï¼Œå¯¹å…ˆåºå’Œä¸­åºè¿›è¡Œåˆ’åˆ† 
+	// é‚£ä¹ˆpivotå°†å…ˆåºåˆ†æˆprel(æ ¹)prel+1~pivot-inl+prel(å·¦å­æ ‘ç»“ç‚¹)pivot-inl+prel+1~prer(å³å­æ ‘ç»“ç‚¹)
+	// ä¸­åºåˆ†æˆinl~pivot-1(å·¦å­æ ‘ç»“ç‚¹)pivot(æ ¹)pivot+1~inr(å³å­æ ‘ç»“ç‚¹)
 	BiNode *node = new(BiNode);
 	node->data = pre[prel]; 
 	int pivot;
@@ -249,17 +249,17 @@ BiTree PreAndIn2(int pre[], int in[], int prel, int prer, int inl, int inr) {
 }
 
 /*
-	post[]: ºóÐòÊý×é
-	in[]: ÖÐÐòÊý×é
-	postl: ºóÐòÊý×éµÄÆðÊ¼Î»ÖÃ
-	postr: ºóÐòÊý×éµÄ½áÊøÎ»ÖÃ 
-	inl: ÖÐÐòÊý×éµÄÆðÊ¼Î»ÖÃ
-	inr: ÖÐÐòÊý×éµÄ½áÊøÎ»ÖÃ
+	post[]: åŽåºæ•°ç»„
+	in[]: ä¸­åºæ•°ç»„
+	postl: åŽåºæ•°ç»„çš„èµ·å§‹ä½ç½®
+	postr: åŽåºæ•°ç»„çš„ç»“æŸä½ç½® 
+	inl: ä¸­åºæ•°ç»„çš„èµ·å§‹ä½ç½®
+	inr: ä¸­åºæ•°ç»„çš„ç»“æŸä½ç½®
 */
 BiTree PostAndIn(int post[], int in[], int postl, int postr, int inl, int inr) {
-	// ×ÜÌåË¼Â·ÊÇÓÉºóÐòÊý×éµÄ½áÊøÎ»ÖÃµÄÖµÈ¥ÕÒµ½ÔÚÖÐÐòÊý×éµÄÎ»ÖÃpivot£¬¶ÔºóÐòºÍÖÐÐò½øÐÐ»®·Ö 
-	// ÄÇÃ´pivot½«ºóÐò·Ö³Épostl~postl+pivot-inl-1(×ó×ÓÊ÷½áµã)postl+pivot-inl~postr-1(ÓÒ×ÓÊ÷½áµã)postr(¸ù)
-	// ÖÐÐò·Ö³Éinl~pivot-1(×ó×ÓÊ÷½áµã)pivot(¸ù)pivot+1~inr(ÓÒ×ÓÊ÷½áµã)
+	// æ€»ä½“æ€è·¯æ˜¯ç”±åŽåºæ•°ç»„çš„ç»“æŸä½ç½®çš„å€¼åŽ»æ‰¾åˆ°åœ¨ä¸­åºæ•°ç»„çš„ä½ç½®pivotï¼Œå¯¹åŽåºå’Œä¸­åºè¿›è¡Œåˆ’åˆ† 
+	// é‚£ä¹ˆpivotå°†åŽåºåˆ†æˆpostl~postl+pivot-inl-1(å·¦å­æ ‘ç»“ç‚¹)postl+pivot-inl~postr-1(å³å­æ ‘ç»“ç‚¹)postr(æ ¹)
+	// ä¸­åºåˆ†æˆinl~pivot-1(å·¦å­æ ‘ç»“ç‚¹)pivot(æ ¹)pivot+1~inr(å³å­æ ‘ç»“ç‚¹)
 	BiNode *node = new(BiNode);
 	node->data = post[postr];
 	int pivot;
@@ -272,21 +272,21 @@ BiTree PostAndIn(int post[], int in[], int postl, int postr, int inl, int inr) {
 }
 
 /*
-	pre[]: ÏÈÐòÊý×é
-	s1: ÏÈÐòÆðÊ¼Î»ÖÃ
-	e1: ÏÈÐò½áÎ²Î»ÖÃ
-	post[]: ºóÐòÊý×é
-	s2: ºóÐòÆðÊ¼Î»ÖÃ
-	e2: ºóÐò½áÎ²Î»ÖÃ 
-	func: £¨Âú¶þ²æÊ÷£©ÓÉÏÈÐòÊý×éµÃ³öºóÐòÊý×é 
+	pre[]: å…ˆåºæ•°ç»„
+	s1: å…ˆåºèµ·å§‹ä½ç½®
+	e1: å…ˆåºç»“å°¾ä½ç½®
+	post[]: åŽåºæ•°ç»„
+	s2: åŽåºèµ·å§‹ä½ç½®
+	e2: åŽåºç»“å°¾ä½ç½® 
+	func: ï¼ˆæ»¡äºŒå‰æ ‘ï¼‰ç”±å…ˆåºæ•°ç»„å¾—å‡ºåŽåºæ•°ç»„ 
 */
 void PreToPost(int pre[], int s1, int e1, int post[], int s2, int e2) {
-	// ×ÜÌåË¼Â·ÊÇÏÈÐòÊý×é·Ö³É¸ù×óÓÒ£¬ºóÐòÊý×éÊÇ×óÓÒ¸ù
-	// ÏÈÐòÊý×éµÄÆðÊ¼Öµ¿Ï¶¨ÊÇ¸ù½ÚµãµÄÖµ£¬ÄÇÃ´ºóÐò¸ùÓÖÊÇ×îºó
-	// Ôò½«Æä¸³¸øºóÐòµÄÄ©Î²Î»ÖÃ¡£ÓÉÓÚÊÇÂú¶þ²æÊ÷£¬Ã¿¸ö½áµã³ýÁËÒ¶×Ó½áµã¶¼ÊÇÂú¶þ²æÊ÷
-	// ËùÒÔÃ¿¸ö½áµãµÄ×ó×ÓÊ÷ºÍÓÒ×ÓÊ÷µÄ¸öÊý±ØÊÇfloor(×Ü¸öÊý/2)£¬ 
+	// æ€»ä½“æ€è·¯æ˜¯å…ˆåºæ•°ç»„åˆ†æˆæ ¹å·¦å³ï¼ŒåŽåºæ•°ç»„æ˜¯å·¦å³æ ¹
+	// å…ˆåºæ•°ç»„çš„èµ·å§‹å€¼è‚¯å®šæ˜¯æ ¹èŠ‚ç‚¹çš„å€¼ï¼Œé‚£ä¹ˆåŽåºæ ¹åˆæ˜¯æœ€åŽ
+	// åˆ™å°†å…¶èµ‹ç»™åŽåºçš„æœ«å°¾ä½ç½®ã€‚ç”±äºŽæ˜¯æ»¡äºŒå‰æ ‘ï¼Œæ¯ä¸ªç»“ç‚¹é™¤äº†å¶å­ç»“ç‚¹éƒ½æ˜¯æ»¡äºŒå‰æ ‘
+	// æ‰€ä»¥æ¯ä¸ªç»“ç‚¹çš„å·¦å­æ ‘å’Œå³å­æ ‘çš„ä¸ªæ•°å¿…æ˜¯floor(æ€»ä¸ªæ•°/2)ï¼Œ 
 	if (e1 >= s1) {
-		int half = (e1 - s1) / 2;// ¿ÉÒÔµ±³É×ó×ÓÊ÷»òÓÒ×ÓÊ÷µÄ¸öÊý 
+		int half = (e1 - s1) / 2;// å¯ä»¥å½“æˆå·¦å­æ ‘æˆ–å³å­æ ‘çš„ä¸ªæ•° 
 		post[e2] = pre[s1];
 		PreToPost(pre, s1 + 1, s1 + half, post, s2, s2 + half - 1);
 		PreToPost(pre, s1 + half + 1, e1, post, s2 + half, e2 - 1);
@@ -365,7 +365,7 @@ BiNode* linkAllLeafNodes(BiTree B) {
 }
 
 BiNode* resEmptyNode() {
-	// ·½±ãgetBiTreeWidth1º¯Êý²åÈëÓÃ×÷¸ô°åµÄ½áµã 
+	// æ–¹ä¾¿getBiTreeWidth1å‡½æ•°æ’å…¥ç”¨ä½œéš”æ¿çš„ç»“ç‚¹ 
 	BiNode* p = new(BiNode);
 	p->data = -999;
 	p->lchild = NULL;
@@ -374,18 +374,18 @@ BiNode* resEmptyNode() {
 }
 
 int getBiTreeWidth1(BiTree B) {
-	// ×ÜÌåË¼Â·ÊÇ¸øÃ¿Ò»²ã×îºóÒ»¸ö½áµãºóÃæ²åÈë¿Õ½áµã£¬·Ö¸ôÏÂÒ»²ãµÄ½áµã¡£ 
-	// ³õÊ¼»¯w=0£¬Ã¿´Î±éÀúÒ»¸öÔªËØ£¬¾Íw++£¬½«ËüµÄº¢×Ó½áµãÈë¶Ó£¬²¢ÈÃËü³ö¶Ó 
-	// Ö±µ½Óöµ½¿Õ½áµã£¬ÄÇÃ´w¾ÍÊÇÕâÒ»²ãµÄ¿í¶È£¬ÓëmaxWidth±È½Ï¡£ÖØÐÂÉèÖÃw=0£¬
-	// Í¬Ê±ÏÂÒ»²ãµÄ½áµãÒÑ¾­È«²¿Èë¶Ó£¬ÔÙÄ©Î²²åÈë¿Õ½áµã£¬ÖØ¸´²Ù×÷ 
+	// æ€»ä½“æ€è·¯æ˜¯ç»™æ¯ä¸€å±‚æœ€åŽä¸€ä¸ªç»“ç‚¹åŽé¢æ’å…¥ç©ºç»“ç‚¹ï¼Œåˆ†éš”ä¸‹ä¸€å±‚çš„ç»“ç‚¹ã€‚ 
+	// åˆå§‹åŒ–w=0ï¼Œæ¯æ¬¡éåŽ†ä¸€ä¸ªå…ƒç´ ï¼Œå°±w++ï¼Œå°†å®ƒçš„å­©å­ç»“ç‚¹å…¥é˜Ÿï¼Œå¹¶è®©å®ƒå‡ºé˜Ÿ 
+	// ç›´åˆ°é‡åˆ°ç©ºç»“ç‚¹ï¼Œé‚£ä¹ˆwå°±æ˜¯è¿™ä¸€å±‚çš„å®½åº¦ï¼Œä¸ŽmaxWidthæ¯”è¾ƒã€‚é‡æ–°è®¾ç½®w=0ï¼Œ
+	// åŒæ—¶ä¸‹ä¸€å±‚çš„ç»“ç‚¹å·²ç»å…¨éƒ¨å…¥é˜Ÿï¼Œå†æœ«å°¾æ’å…¥ç©ºç»“ç‚¹ï¼Œé‡å¤æ“ä½œ 
 	if (!B) return 0;
 	queue<BiNode*> q;
 	q.push(B);
 	q.push(resEmptyNode());
 	int maxWidth = -1;
 	int w = 0;
-	// Èç¹û¸Ã½áµã¼ÈÊÇ¿Õ½áµã£¬¿í¶ÈÒ²ÊÇ0£¬ÒâÎ¶×ÅÔÚ¿Õ½áµãÇ°ÃæµÄËùÓÐ½áµãÃ»ÓÐº¢×Ó½áµã 
-	// ÕâÒ»²ãÎª¿Õ£¬ÄÇÃ´Ôò½áÊøÑ­»· 
+	// å¦‚æžœè¯¥ç»“ç‚¹æ—¢æ˜¯ç©ºç»“ç‚¹ï¼Œå®½åº¦ä¹Ÿæ˜¯0ï¼Œæ„å‘³ç€åœ¨ç©ºç»“ç‚¹å‰é¢çš„æ‰€æœ‰ç»“ç‚¹æ²¡æœ‰å­©å­ç»“ç‚¹ 
+	// è¿™ä¸€å±‚ä¸ºç©ºï¼Œé‚£ä¹ˆåˆ™ç»“æŸå¾ªçŽ¯ 
 	while (!(q.front()->data == -999 && w == 0)) {
 		BiNode* p = q.front();
 		q.pop();
@@ -407,17 +407,17 @@ int getBiTreeWidth1(BiTree B) {
 }
 
 int getBiTreeWidth(BiTree B) {
-	// ×ÜÌåË¼Â·ÊÇq1£¬q2ÂÖ»»Ê¹ÓÃ£¬¾ßÌåÊÇq1ÏÈ´¢´æ¸ù½áµã
-	// °Ñq1´¢´æµÄ½áµãÒ»±ßµ¯³ö£¬Ò»±ß¼ÇÂ¼¸öÊý£¬Ò»±ßÈÃËüµÄº¢×ÓÈë¶Óq2£¬ 
-	// q1Îª¿ÕÔòÕâÒ»²ãµÄ¿í¶ÈÒ²¾ÍµÃµ½ÁË£¬Í¬Àí£¬q2Ò²Ö´ÐÐÕâÒ»²Ù×÷£¬q1¾Í´¢´æ
-	// ÁËq2ËùÓÐ½áµãµÄº¢×Ó½áµã£¬Í¬Ê±Ò²¾ÍµÃµ½ÁËÕâÒ»²ãµÄ¿í¶È 
-	// ¿í¶È¾ÍÈ¡ÕâÐ©²Ù×÷ÖÐ¿í¶ÈµÄ×î´óÖµ 
+	// æ€»ä½“æ€è·¯æ˜¯q1ï¼Œq2è½®æ¢ä½¿ç”¨ï¼Œå…·ä½“æ˜¯q1å…ˆå‚¨å­˜æ ¹ç»“ç‚¹
+	// æŠŠq1å‚¨å­˜çš„ç»“ç‚¹ä¸€è¾¹å¼¹å‡ºï¼Œä¸€è¾¹è®°å½•ä¸ªæ•°ï¼Œä¸€è¾¹è®©å®ƒçš„å­©å­å…¥é˜Ÿq2ï¼Œ 
+	// q1ä¸ºç©ºåˆ™è¿™ä¸€å±‚çš„å®½åº¦ä¹Ÿå°±å¾—åˆ°äº†ï¼ŒåŒç†ï¼Œq2ä¹Ÿæ‰§è¡Œè¿™ä¸€æ“ä½œï¼Œq1å°±å‚¨å­˜
+	// äº†q2æ‰€æœ‰ç»“ç‚¹çš„å­©å­ç»“ç‚¹ï¼ŒåŒæ—¶ä¹Ÿå°±å¾—åˆ°äº†è¿™ä¸€å±‚çš„å®½åº¦ 
+	// å®½åº¦å°±å–è¿™äº›æ“ä½œä¸­å®½åº¦çš„æœ€å¤§å€¼ 
 	if (!B) return 0; 
 	queue<BiNode*> q1;
 	queue<BiNode*> q2;
 	q1.push(B);
 	int maxWidth = -1;
-	// ½áÊøÑ­»·µÄÌõ¼þÊÇq1ºÍq2Í¬Ê±Îª¿Õ 
+	// ç»“æŸå¾ªçŽ¯çš„æ¡ä»¶æ˜¯q1å’Œq2åŒæ—¶ä¸ºç©º 
 	while (!(q1.empty() && q2.empty())) {
 		if (q2.empty()) {
 			int w = 0;
@@ -454,15 +454,15 @@ int getBiTreeWidth(BiTree B) {
 }
 
 /*
-	BiNode* head: ´øÓÐÍ·½áµãµÄ¶þ²æÊ÷
-	BiNode* p: ¶þ²æÊ÷½áµã
-	BiNode* q: ¶þ²æÊ÷½áµã
-	BiNode *&r: ÒýÓÃÀàÐÍ£¬·µ»ØpºÍqµÄ×î½ü¹«¹²×æÏÈ½áµã 
+	BiNode* head: å¸¦æœ‰å¤´ç»“ç‚¹çš„äºŒå‰æ ‘
+	BiNode* p: äºŒå‰æ ‘ç»“ç‚¹
+	BiNode* q: äºŒå‰æ ‘ç»“ç‚¹
+	BiNode *&r: å¼•ç”¨ç±»åž‹ï¼Œè¿”å›žpå’Œqçš„æœ€è¿‘å…¬å…±ç¥–å…ˆç»“ç‚¹ 
 */
 void Ancestor(BiNode* head, BiNode* p, BiNode* q, BiNode *&r) {
-	// ×ÜÌåË¼Â·ÊÇÀûÓÃºóÐò±éÀúµÄÌØµã£¬ÓÃÁ½¸öÕ»·Ö±ð´¢´æp¡¢qµÄ×æÏÈ½áµã
-	// ¿¿½üÕ»¶¥µÄÔªËØÊÇÔ½Ô¶Àëp¡¢qµÄ×æÏÈ½áµã 
-	// ±éÀú½áÊøºó£¬ÒÀ´Î±È½Ïp¡¢qµÄ×æÏÈ½áµã£¬Ö±µ½Õ»¶¥ÔªËØ²»ÏàÍ¬ÎªÖ¹ 
+	// æ€»ä½“æ€è·¯æ˜¯åˆ©ç”¨åŽåºéåŽ†çš„ç‰¹ç‚¹ï¼Œç”¨ä¸¤ä¸ªæ ˆåˆ†åˆ«å‚¨å­˜pã€qçš„ç¥–å…ˆç»“ç‚¹
+	// é è¿‘æ ˆé¡¶çš„å…ƒç´ æ˜¯è¶Šè¿œç¦»pã€qçš„ç¥–å…ˆç»“ç‚¹ 
+	// éåŽ†ç»“æŸåŽï¼Œä¾æ¬¡æ¯”è¾ƒpã€qçš„ç¥–å…ˆç»“ç‚¹ï¼Œç›´åˆ°æ ˆé¡¶å…ƒç´ ä¸ç›¸åŒä¸ºæ­¢ 
 	if (!(head->lchild)) return;
 	BiNode *t = head;
 	stack<BiNode*> s, s1, s2;
@@ -479,7 +479,7 @@ void Ancestor(BiNode* head, BiNode* p, BiNode* q, BiNode *&r) {
 			} else {
 				s.pop();
 				if (e == p || e == q) {
-					// ÁÙÊ±´¢´æsµÄÔªËØ£¬·½±ã»¹Ô­Õ»s 
+					// ä¸´æ—¶å‚¨å­˜sçš„å…ƒç´ ï¼Œæ–¹ä¾¿è¿˜åŽŸæ ˆs 
 					stack<BiNode*> temp;
 					while (!s.empty()) {
 						temp.push(s.top());
@@ -509,7 +509,7 @@ void Ancestor(BiNode* head, BiNode* p, BiNode* q, BiNode *&r) {
 }
 
 BiNode* initBiTree() {
-	// ¸ø¶þ²æÊ÷Ôö¼Ó¿ÕµÄÍ·½áµã 
+	// ç»™äºŒå‰æ ‘å¢žåŠ ç©ºçš„å¤´ç»“ç‚¹ 
 	BiTree T = createBiTree();
 	BiNode *head = new(BiNode);
 	head->lchild = T;
@@ -531,7 +531,7 @@ bool printAncestors(BiTree B, ElemType x, bool& flag) {
 //		}
 //	}
 //	return false;
-	// ºóÐò±éÀúÖÐÕ»ÖÐ´æ·Å×ÅÕ»¶¥ÔªËØ°üÀ¨ËüµÄËùÓÐ×æÏÈ½áµã 
+	// åŽåºéåŽ†ä¸­æ ˆä¸­å­˜æ”¾ç€æ ˆé¡¶å…ƒç´ åŒ…æ‹¬å®ƒçš„æ‰€æœ‰ç¥–å…ˆç»“ç‚¹ 
 	if (!B) return false;
 	BiNode *p = B;
 	stack<BiNode*> s;
@@ -652,12 +652,12 @@ int countDoubleOffspringsOfNodes(BiTree B) {
 }
 
 /*	
-	¸÷¸ö½ÚµãÖµ¸÷²»ÏàÍ¬
-	pre[]: ±£´æÏÈÐòÐòÁÐ
-	in[]: ±£´æÖÐÐòÐòÁÐ
-	int s: ÖÐÐòÊý×éµÄÆðÊ¼Î»ÖÃ
-	int e: ÖÐÐòÊý×éµÄ½áÊøÎ»ÖÃ 
-	return BiTree: ·µ»ØÉú³ÉµÄ¶þ²æÊ÷ 
+	å„ä¸ªèŠ‚ç‚¹å€¼å„ä¸ç›¸åŒ
+	pre[]: ä¿å­˜å…ˆåºåºåˆ—
+	in[]: ä¿å­˜ä¸­åºåºåˆ—
+	int s: ä¸­åºæ•°ç»„çš„èµ·å§‹ä½ç½®
+	int e: ä¸­åºæ•°ç»„çš„ç»“æŸä½ç½® 
+	return BiTree: è¿”å›žç”Ÿæˆçš„äºŒå‰æ ‘ 
 */
 BiTree PreAndIn1(int pre[], int in[], int s, int e) {
     if (s > e) return NULL;                      	
@@ -667,32 +667,32 @@ BiTree PreAndIn1(int pre[], int in[], int s, int e) {
 	int loca;
 	for (loca = s; loca <= e && in[loca] != first; loca++);
 	if (loca == e + 1) return NULL; 
-	// ÆðÊ¼Î»ÖÃµÈÓÚÖÕÖ¹Î»ÖÃËµÃ÷´ËÊ±µÄÖÐÐòÊý×é¾ÍÒ»¸öÖµ
-	// Ã»ÓÐ×óÓÒº¢×Ó 
+	// èµ·å§‹ä½ç½®ç­‰äºŽç»ˆæ­¢ä½ç½®è¯´æ˜Žæ­¤æ—¶çš„ä¸­åºæ•°ç»„å°±ä¸€ä¸ªå€¼
+	// æ²¡æœ‰å·¦å³å­©å­ 
 	if (s == e) {
 		node->lchild = node->rchild = NULL;
 	} else {
 		node->lchild = PreAndIn1(pre + 1, in, s, loca - 1);
-//	    pre+loca+1-s£¬ÕâÀï×¢Òâloca-sµÈÓÚÖÐÐòµÄ×ó×ÓÊ÷½áµã¸öÊý  
+//	    pre+loca+1-sï¼Œè¿™é‡Œæ³¨æ„loca-sç­‰äºŽä¸­åºçš„å·¦å­æ ‘ç»“ç‚¹ä¸ªæ•°  
 		node->rchild = PreAndIn1(pre + loca + 1 - s, in, loca + 1, e);
 	}
 	return node;
 }
 
 /*	
-	¸÷¸ö½ÚµãÖµ¸÷²»ÏàÍ¬
-	A[]: ±£´æÏÈÐòÐòÁÐ
-	B[]: ±£´æÖÐÐòÐòÁÐ
-	int len: ÐèÒª²Ù×÷ÐòÁÐµÄ¸öÊý
-	return BiTree: ·µ»ØÉú³ÉµÄ¶þ²æÊ÷ 
+	å„ä¸ªèŠ‚ç‚¹å€¼å„ä¸ç›¸åŒ
+	A[]: ä¿å­˜å…ˆåºåºåˆ—
+	B[]: ä¿å­˜ä¸­åºåºåˆ—
+	int len: éœ€è¦æ“ä½œåºåˆ—çš„ä¸ªæ•°
+	return BiTree: è¿”å›žç”Ÿæˆçš„äºŒå‰æ ‘ 
 */ 
 BiTree PreAndIn(int A[], int B[], int len) {
-	// ×ÜÌåË¼Â·: ÖÐÐòÀï²éÕÒÏÈÐòÊ×¸öÖµµÄÎ»ÖÃloca 
-	// ²¢ÓÃloca½«ÖÐÐò·Ö³É×ó¸ùÓÒ ¾ßÌå×ó×ÓÊ÷½áµã´Ó0~loca-1£¬ÓÒ×ÓÊ÷½áµã´Óloca+1~len-1
-	// Í¬Ê±locaÒ²½«ÏÈÐò·Ö³É¸ù×óÓÒ ¾ßÌå×ó×ÓÊ÷½áµã´Ó1~loca£¬ÓÒ×ÓÊ÷½áµã´Óloca+1~len-1 
-	// ÓÃleft±£´æÖÐÐòÖÐ0µ½loca-1µÄÖµ£¬right±£´æÖÐÐòÖÐloca+1µ½len-1µÄÖµ
+	// æ€»ä½“æ€è·¯: ä¸­åºé‡ŒæŸ¥æ‰¾å…ˆåºé¦–ä¸ªå€¼çš„ä½ç½®loca 
+	// å¹¶ç”¨locaå°†ä¸­åºåˆ†æˆå·¦æ ¹å³ å…·ä½“å·¦å­æ ‘ç»“ç‚¹ä»Ž0~loca-1ï¼Œå³å­æ ‘ç»“ç‚¹ä»Žloca+1~len-1
+	// åŒæ—¶locaä¹Ÿå°†å…ˆåºåˆ†æˆæ ¹å·¦å³ å…·ä½“å·¦å­æ ‘ç»“ç‚¹ä»Ž1~locaï¼Œå³å­æ ‘ç»“ç‚¹ä»Žloca+1~len-1 
+	// ç”¨leftä¿å­˜ä¸­åºä¸­0åˆ°loca-1çš„å€¼ï¼Œrightä¿å­˜ä¸­åºä¸­loca+1åˆ°len-1çš„å€¼
 	
-	// ³¤¶ÈÎª0ËµÃ÷Ã»ÓÐ¿ÉÓÃµÄÐòÁÐ 
+	// é•¿åº¦ä¸º0è¯´æ˜Žæ²¡æœ‰å¯ç”¨çš„åºåˆ— 
 	if (len == 0) return NULL;
 	int num = A[0];
 	BiNode *node = new(BiNode);
@@ -700,9 +700,9 @@ BiTree PreAndIn(int A[], int B[], int len) {
 	node->tag = 1;
 	int loca = 0;
 	for (; B[loca] != num && loca < len; loca++);
-	// ÔÚÖÐÐòÐòÁÐÃ»ÓÐÕÒµ½¶ÔÓ¦numµÄÖµ£¬ËµÃ÷²»´æÔÚÕâ±ßµÄº¢×Ó 
+	// åœ¨ä¸­åºåºåˆ—æ²¡æœ‰æ‰¾åˆ°å¯¹åº”numçš„å€¼ï¼Œè¯´æ˜Žä¸å­˜åœ¨è¿™è¾¹çš„å­©å­ 
 	if (loca == len) return NULL;
-	// ³¤¶ÈµÈÓÚ1ËµÃ÷ËüÃ»ÓÐ×óÓÒº¢×Ó 
+	// é•¿åº¦ç­‰äºŽ1è¯´æ˜Žå®ƒæ²¡æœ‰å·¦å³å­©å­ 
 	if (len == 1) {
 		node->lchild = node->rchild = NULL;
 	} else {
@@ -717,9 +717,9 @@ BiTree PreAndIn(int A[], int B[], int len) {
 
 bool isCompleteTree(BiTree B) {
 	if (!B) return true;
-	int flag = 0; //0´ú±íÃ»ÓÐ³öÏÖ¹ý×óº¢×ÓÎª¿ÕµÄ½áµã£¬·´Ö®ÔòÏà·´
-	// ×ÜÌåË¼Â·¾ÍÊÇÈç¹û³öÏÖÁË×óº¢×ÓÎª¿ÕµÄÇé¿ö£¬plusºóÐø½áµãµÄº¢×Ó´æÔÚÔò²»ÊÇÍêÈ«¶þ²æÊ÷ 
-	// ·´Ö®ÔòÊÇ 
+	int flag = 0; //0ä»£è¡¨æ²¡æœ‰å‡ºçŽ°è¿‡å·¦å­©å­ä¸ºç©ºçš„ç»“ç‚¹ï¼Œåä¹‹åˆ™ç›¸å
+	// æ€»ä½“æ€è·¯å°±æ˜¯å¦‚æžœå‡ºçŽ°äº†å·¦å­©å­ä¸ºç©ºçš„æƒ…å†µï¼ŒplusåŽç»­ç»“ç‚¹çš„å­©å­å­˜åœ¨åˆ™ä¸æ˜¯å®Œå…¨äºŒå‰æ ‘ 
+	// åä¹‹åˆ™æ˜¯ 
 	queue<BiNode*> q;
 	q.push(B);
 	while (!q.empty()) {
@@ -741,11 +741,11 @@ bool isCompleteTree(BiTree B) {
 
 int getHeight2(BiTree B) { 
 	queue<BiNode*> q;
-	// lastÖ¸ÏòÒ»²ã×îÓÒ±ß½áµã
-	// rearÖ¸ÏòÏÂÒ»²ã×îÓÒ±ß½áµã 
-	// ×ÜÌåË¼Â·¾ÍÊÇÓÃfrontÖ¸Ïòµ±Ç°±»·ÃÎÊ½áµãµÄ´ÎÐò
-	// Í¬Ê±¼ì²éËüËùÖ¸Ïò½áµãµÄº¢×Ó£¬Èç¹ûÓÐ¾ÍÈë¶Ó£¬²¢¶Ôrear++
-	// µ±front==last ÖØÐÂÉèÖÃlastµÄÖµ£¬¶ÔÏÂÒ»²ãÖØ¸´²Ù×÷ 
+	// lastæŒ‡å‘ä¸€å±‚æœ€å³è¾¹ç»“ç‚¹
+	// rearæŒ‡å‘ä¸‹ä¸€å±‚æœ€å³è¾¹ç»“ç‚¹ 
+	// æ€»ä½“æ€è·¯å°±æ˜¯ç”¨frontæŒ‡å‘å½“å‰è¢«è®¿é—®ç»“ç‚¹çš„æ¬¡åº
+	// åŒæ—¶æ£€æŸ¥å®ƒæ‰€æŒ‡å‘ç»“ç‚¹çš„å­©å­ï¼Œå¦‚æžœæœ‰å°±å…¥é˜Ÿï¼Œå¹¶å¯¹rear++
+	// å½“front==last é‡æ–°è®¾ç½®lastçš„å€¼ï¼Œå¯¹ä¸‹ä¸€å±‚é‡å¤æ“ä½œ 
 	int front = -1, rear = -1, level = 0, last = 0;
 	q.push(B);
 	rear++;
@@ -761,9 +761,9 @@ int getHeight2(BiTree B) {
 			q.push(p->rchild);
 			rear++;
 		}
-		// front==lastÒâÎ¶×ÅÒ»²ãµÄ·ÃÎÊÒÑ½áÊø
-		// Ò²ËµÃ÷Õâ²ã½áµãµÄº¢×Ó½áµãÈ«²¿Èë¶Ó£¬rearÒ²³É¹¦±£´æÏÂÒ»²ãµÄ×îÓÒ±ß½áµãµÄ´ÎÐò 
-		// ²ãÊý¼ÓÒ»£¬ÎªÏÂÒ»²ãÑ­»·ÉèÖÃlast£¬ÈÃlastÖ¸ÏòÏÂÒ»²ã×îÓÒ±ß½áµãµÄ´ÎÐò 
+		// front==lastæ„å‘³ç€ä¸€å±‚çš„è®¿é—®å·²ç»“æŸ
+		// ä¹Ÿè¯´æ˜Žè¿™å±‚ç»“ç‚¹çš„å­©å­ç»“ç‚¹å…¨éƒ¨å…¥é˜Ÿï¼Œrearä¹ŸæˆåŠŸä¿å­˜ä¸‹ä¸€å±‚çš„æœ€å³è¾¹ç»“ç‚¹çš„æ¬¡åº 
+		// å±‚æ•°åŠ ä¸€ï¼Œä¸ºä¸‹ä¸€å±‚å¾ªçŽ¯è®¾ç½®lastï¼Œè®©lastæŒ‡å‘ä¸‹ä¸€å±‚æœ€å³è¾¹ç»“ç‚¹çš„æ¬¡åº 
 		if (front == last) {
 			last = rear;
 			level++;
@@ -775,8 +775,8 @@ int getHeight2(BiTree B) {
 int getHeight1(BiTree B) {
 	if (!B) return 0; 
 	BiNode *p = B;
-	stack<int> s; //±£´æÃ¿Ò»²ã½áµãµÄ¸ß¶È 
-	stack<BiNode*> s1; //±£´æÃ¿Ò»²ã½áµã 
+	stack<int> s; //ä¿å­˜æ¯ä¸€å±‚ç»“ç‚¹çš„é«˜åº¦ 
+	stack<BiNode*> s1; //ä¿å­˜æ¯ä¸€å±‚ç»“ç‚¹ 
 	s.push(1); 
 	s1.push(B);
 	int height = 1;
@@ -802,11 +802,11 @@ int getHeight1(BiTree B) {
 }
 
 /*
-	BiTree B: ¶þ²æÊ÷
+	BiTree B: äºŒå‰æ ‘
 */ 
 int getHeight(BiTree B) {
- 	// ÓÉÓÚ¶þ²æÊ÷µÄ¸ß¶ÈÎªmax(ÓÒ×ÓÊ÷¸ß¶È£¬×ó×ÓÊ÷¸ß¶È)+1 
- 	// +1ÊÇÒòÎª¸ù½ÚµãËã¸ß¶ÈÎª1 
+ 	// ç”±äºŽäºŒå‰æ ‘çš„é«˜åº¦ä¸ºmax(å³å­æ ‘é«˜åº¦ï¼Œå·¦å­æ ‘é«˜åº¦)+1 
+ 	// +1æ˜¯å› ä¸ºæ ¹èŠ‚ç‚¹ç®—é«˜åº¦ä¸º1 
 	if (!B) return 0;
 	return 
 		getHeight(B->lchild) > getHeight(B->rchild) ? 
@@ -815,11 +815,11 @@ int getHeight(BiTree B) {
 }
 
 /*
-	BiTree B: ¶þ²æÊ÷
+	BiTree B: äºŒå‰æ ‘
 */
 void traverseByReLevelOrder(BiTree B) {
-	// ÕâÀïÎªÁËÊµÏÖ´ÓÓÒÏò×óµÄ²ã´Î±éÀú 
-	// Ö»ÐèÓÅÏÈÍÆÈëÓÒº¢×Ó¼´¿É 
+	// è¿™é‡Œä¸ºäº†å®žçŽ°ä»Žå³å‘å·¦çš„å±‚æ¬¡éåŽ† 
+	// åªéœ€ä¼˜å…ˆæŽ¨å…¥å³å­©å­å³å¯ 
 	queue<BiNode*> q;
 	q.push(B);
 	while (!q.empty()) {
@@ -836,17 +836,17 @@ void traverseByReLevelOrder(BiTree B) {
 }
 
 /*
-	BiTree B: ¶þ²æÊ÷
+	BiTree B: äºŒå‰æ ‘
 */
 void traverseByPostOrder1(BiTree B) {
 	if (!B) return;
-	BiNode *p = B; //±£´æÃ»±»·ÃÎÊ¹ý×ó×ÓÊ÷µÄ½áµã»òÕßÊÇ¿Õ½áµã 
-	stack<BiNode*> s; //±£´æ×ÅÕ»¶¥°üÀ¨Õ»¶¥ÔªËØµÄÒ»Á¬´®×æÏÈ½áµã 
-	// ÓÉÓÚºóÐòµÃ·ÃÎÊºÃ×ó×ÓÊ÷ºÍÓÒ×ÓÊ÷²ÅÄÜ·ÃÎÊ¸ù½áµã
-	// ÎªÁË±ÜÃâÖØ¸´·ÃÎÊ×ó×ÓÊ÷£¬ÔÚÖÐÐòÖÐ¿ÉÒÔµ¯³ö¸ù½áµãÀ´±ÜÃâÕâÖÖÇé¿ö
-	// µ«¸ù½áµãµÄÓÒ×ÓÊ÷Ò²µÃÏÈ±»·ÃÎÊ£¬ËùÒÔ²»ÄÜµ¯³ö½áµã
-	// ÓÖÒòÎªÓÒ×ÓÊ÷·ÃÎÊÍê±Ï»á»ØËÝµ½¸ù½Úµã£¬ÎªÁË±ÜÃâÖØ¸´·ÃÎÊÓÒ×ÓÊ÷ 
-	// ¿ÉÒÔÓÃlast_pop±£´æÒÑ±»·ÃÎÊµÄ½áµã 
+	BiNode *p = B; //ä¿å­˜æ²¡è¢«è®¿é—®è¿‡å·¦å­æ ‘çš„ç»“ç‚¹æˆ–è€…æ˜¯ç©ºç»“ç‚¹ 
+	stack<BiNode*> s; //ä¿å­˜ç€æ ˆé¡¶åŒ…æ‹¬æ ˆé¡¶å…ƒç´ çš„ä¸€è¿žä¸²ç¥–å…ˆç»“ç‚¹ 
+	// ç”±äºŽåŽåºå¾—è®¿é—®å¥½å·¦å­æ ‘å’Œå³å­æ ‘æ‰èƒ½è®¿é—®æ ¹ç»“ç‚¹
+	// ä¸ºäº†é¿å…é‡å¤è®¿é—®å·¦å­æ ‘ï¼Œåœ¨ä¸­åºä¸­å¯ä»¥å¼¹å‡ºæ ¹ç»“ç‚¹æ¥é¿å…è¿™ç§æƒ…å†µ
+	// ä½†æ ¹ç»“ç‚¹çš„å³å­æ ‘ä¹Ÿå¾—å…ˆè¢«è®¿é—®ï¼Œæ‰€ä»¥ä¸èƒ½å¼¹å‡ºç»“ç‚¹
+	// åˆå› ä¸ºå³å­æ ‘è®¿é—®å®Œæ¯•ä¼šå›žæº¯åˆ°æ ¹èŠ‚ç‚¹ï¼Œä¸ºäº†é¿å…é‡å¤è®¿é—®å³å­æ ‘ 
+	// å¯ä»¥ç”¨last_popä¿å­˜å·²è¢«è®¿é—®çš„ç»“ç‚¹ 
 	BiNode *last_pop = NULL;
 	while (p || !s.empty()) {
 		if (p) {
@@ -854,8 +854,8 @@ void traverseByPostOrder1(BiTree B) {
 			p = p->lchild;
 		} else {
 			BiNode *q = s.top();
-			// ÍÆÈëÓÒ×ÓÊ÷Î´±»·ÃÎÊ¹ýµÄ½áµã£¬
-			// ÓÃp±£´æ¸Ã½áµãµÄ×óº¢×Ó 
+			// æŽ¨å…¥å³å­æ ‘æœªè¢«è®¿é—®è¿‡çš„ç»“ç‚¹ï¼Œ
+			// ç”¨pä¿å­˜è¯¥ç»“ç‚¹çš„å·¦å­©å­ 
 			if (q->rchild && q->rchild != last_pop) {
 				s.push(q->rchild);
 				p = s.top()->lchild;
@@ -877,13 +877,13 @@ void traverseByPostOrder(BiTree B) {
 }
 
 /*
-	return BiNode*: ·µ»ØÏÈÐòÉú³ÉµÄ¶þ²æÊ÷ 
+	return BiNode*: è¿”å›žå…ˆåºç”Ÿæˆçš„äºŒå‰æ ‘ 
 */
 BiNode* createBiTree() {
 	BiNode* node;
 	ElemType data;
 	cin>>data;
-	// data = -1´ú±íÕâ¸öÎ»ÖÃ²»²åÈëÐÂ½áµã 
+	// data = -1ä»£è¡¨è¿™ä¸ªä½ç½®ä¸æ’å…¥æ–°ç»“ç‚¹ 
 	if (data != -1) {
 		node = new(BiNode);
 		node->data = data;
@@ -905,25 +905,25 @@ void traverseByPreOrder(BiTree B) {
 }
 
 /*
-	BiTree B: ¶þ²æÊ÷ 
+	BiTree B: äºŒå‰æ ‘ 
 */
 void traverseByPreOrder1(BiTree B) {
-	stack<BiNode*> s; // ±£´æ×ÔÉÏ¶øÏÂµÄÓÒ½áµã 
-	BiNode *p = B; // pµÚÒ»´Î±£´æ¸ù½áµã£¬Íùºó±£´æÐèÒª²Ù×÷×ó×ÓÊ÷µÄÓÒ×ÓÊ÷µÄµÚÒ»¸ö½áµã 
-	// !s.empty()´ú±íÕ»ÖÐ±£´æ×ÅÇ°Ò»´ÎÑ­»·µÄ×ó×ÓÊ÷µÄ½áµãÓÐÓÒº¢×Ó 
+	stack<BiNode*> s; // ä¿å­˜è‡ªä¸Šè€Œä¸‹çš„å³ç»“ç‚¹ 
+	BiNode *p = B; // pç¬¬ä¸€æ¬¡ä¿å­˜æ ¹ç»“ç‚¹ï¼Œå¾€åŽä¿å­˜éœ€è¦æ“ä½œå·¦å­æ ‘çš„å³å­æ ‘çš„ç¬¬ä¸€ä¸ªç»“ç‚¹ 
+	// !s.empty()ä»£è¡¨æ ˆä¸­ä¿å­˜ç€å‰ä¸€æ¬¡å¾ªçŽ¯çš„å·¦å­æ ‘çš„ç»“ç‚¹æœ‰å³å­©å­ 
 	while (p || !s.empty()) {
-		// ±ßÑ­»·×ó×ÓÊ÷£¬±ßÊä³öÖµ 
+		// è¾¹å¾ªçŽ¯å·¦å­æ ‘ï¼Œè¾¹è¾“å‡ºå€¼ 
 		while (p) {
 			cout<<(p->data)<<" ";
-			// ÓÉÓÚÏÈÐòÊÇ·ÃÎÊºÃ×ó×ÓÊ÷¾Í·ÃÎÊÓÒ×ÓÊ÷µÄµÚÒ»¸ö
-			// ËùÒÔÕâÀïÒª°Ñ½áµãµÄÓÒº¢×ÓÍÆÈëÕ»ÖÐ 
+			// ç”±äºŽå…ˆåºæ˜¯è®¿é—®å¥½å·¦å­æ ‘å°±è®¿é—®å³å­æ ‘çš„ç¬¬ä¸€ä¸ª
+			// æ‰€ä»¥è¿™é‡Œè¦æŠŠç»“ç‚¹çš„å³å­©å­æŽ¨å…¥æ ˆä¸­ 
 			if (p->rchild) {
 				s.push(p->rchild);
 			}
 			p = p->lchild;
 		}
-		// È¡³ö×ó×ÓÊ÷×îºóÒ»¸ö½áµãµÄÓÒ×ÓÊ÷µÄµÚÒ»¸ö½áµã£¬²¢µ¯³ö 
-		// ÓÃp±£´æËü£¬·½±ãÏÂÒ»´ÎÑ­»·²Ù×÷ËüµÄ×ó×ÓÊ÷ 
+		// å–å‡ºå·¦å­æ ‘æœ€åŽä¸€ä¸ªç»“ç‚¹çš„å³å­æ ‘çš„ç¬¬ä¸€ä¸ªç»“ç‚¹ï¼Œå¹¶å¼¹å‡º 
+		// ç”¨pä¿å­˜å®ƒï¼Œæ–¹ä¾¿ä¸‹ä¸€æ¬¡å¾ªçŽ¯æ“ä½œå®ƒçš„å·¦å­æ ‘ 
 		if (!s.empty()) {
 			p = s.top();
 			s.pop();
@@ -932,11 +932,11 @@ void traverseByPreOrder1(BiTree B) {
 }
 
 /*
-	BiTree B: ¶þ²æÊ÷ 
+	BiTree B: äºŒå‰æ ‘ 
 */
 void traverseByPreOrder2(BiTree B) {
-	stack<BiNode*> s; // ±£´æ×ÅÃ»ÓÐ±»·ÃÎÊ¹ýÓÒº¢×ÓµÄ½áµã 
-	BiNode *p = B; // ±£´æÃ»ÓÐ±»·ÃÎÊ¹ý×óº¢×ÓµÄ½áµã 
+	stack<BiNode*> s; // ä¿å­˜ç€æ²¡æœ‰è¢«è®¿é—®è¿‡å³å­©å­çš„ç»“ç‚¹ 
+	BiNode *p = B; // ä¿å­˜æ²¡æœ‰è¢«è®¿é—®è¿‡å·¦å­©å­çš„ç»“ç‚¹ 
 	while (p || !s.empty()) {
 		if (p) {
 			cout<<(p->data)<<" ";
@@ -951,11 +951,11 @@ void traverseByPreOrder2(BiTree B) {
 }
 
 /*
-	BiTree B: ¶þ²æÊ÷
+	BiTree B: äºŒå‰æ ‘
 */
 void traverseByLevelOrder(BiTree B) {
-	// Ê¹ÓÃ¶ÓÁÐ´æ·ÅÃ»ÓÐ·ÃÎÊµ½×óÓÒº¢×ÓµÄ½áµã 
-	// ·ÃÎÊ¶ÓÊ×¾ÍÊä³öÖµ¡¢µ¯³ö¡¢ÍÆÈëËüµÄº¢×Ó½áµã 
+	// ä½¿ç”¨é˜Ÿåˆ—å­˜æ”¾æ²¡æœ‰è®¿é—®åˆ°å·¦å³å­©å­çš„ç»“ç‚¹ 
+	// è®¿é—®é˜Ÿé¦–å°±è¾“å‡ºå€¼ã€å¼¹å‡ºã€æŽ¨å…¥å®ƒçš„å­©å­ç»“ç‚¹ 
 	if (B == NULL) return;
 	queue<BiNode*> q;
 	q.push(B);
@@ -981,7 +981,7 @@ void traverseByMidOrder(BiTree B) {
 }
 
 /*
-	BiTree B: ¶þ²æÊ÷
+	BiTree B: äºŒå‰æ ‘
 */
 void traverseByMidOrder1(BiTree B) { 
 	if (B == NULL) return;
@@ -989,17 +989,17 @@ void traverseByMidOrder1(BiTree B) {
 	s.push(B);
 	while (!s.empty()) {
 		BiNode *p = s.top();
-		// ÓÉÓÚÖÐÐò»á·ÃÎÊºÃ×ó×ÓÊ÷£¬ÔÙ»ØËÝµ½×ó×ÓÊ÷µÄË«Ç×½áµã  
-		// ±ÜÃâÖØ¸´·ÃÎÊ×ó×ÓÊ÷£¬ÕâÀï¸ø½áµãÌí¼Ótag±ê¼Ç×ó×ÓÊ÷ÊÇ·ñÒÑ¾­±»·ÃÎÊ¹ý 
+		// ç”±äºŽä¸­åºä¼šè®¿é—®å¥½å·¦å­æ ‘ï¼Œå†å›žæº¯åˆ°å·¦å­æ ‘çš„åŒäº²ç»“ç‚¹  
+		// é¿å…é‡å¤è®¿é—®å·¦å­æ ‘ï¼Œè¿™é‡Œç»™ç»“ç‚¹æ·»åŠ tagæ ‡è®°å·¦å­æ ‘æ˜¯å¦å·²ç»è¢«è®¿é—®è¿‡ 
 		if (p->lchild && p->lchild->tag) {
 			s.push(p->lchild);
 		} else {
-			// Ã»ÓÐ×óº¢×Ó»òÕßÒÑ¾­·ÃÎÊºÃ×ó×ÓÊ÷£¬Ö±½ÓÊä³ö½áµãÖµ 
+			// æ²¡æœ‰å·¦å­©å­æˆ–è€…å·²ç»è®¿é—®å¥½å·¦å­æ ‘ï¼Œç›´æŽ¥è¾“å‡ºç»“ç‚¹å€¼ 
 			cout<<p->data<<" ";
-			// ±ê¼Ç¸Ã½áµãµÄ×ó×ÓÊ÷·ÃÎÊÍê±Ï 
+			// æ ‡è®°è¯¥ç»“ç‚¹çš„å·¦å­æ ‘è®¿é—®å®Œæ¯• 
 			p->tag = 0;
 			s.pop();
-			// ¿ªÊ¼²Ù×÷×ó×ÓÊ÷ 
+			// å¼€å§‹æ“ä½œå·¦å­æ ‘ 
 			if (p->rchild) {
 				s.push(p->rchild);
 			}
@@ -1008,22 +1008,22 @@ void traverseByMidOrder1(BiTree B) {
 }
 
 /*
-	BiTree B: ¶þ²æÊ÷
+	BiTree B: äºŒå‰æ ‘
 */
 void traverseByMidOrder2(BiTree B) {
 	stack<BiNode*> s;
 	BiNode *p = B;
 	while (p || !s.empty()) {
-		// ½«×óº¢×ÓÈ«²¿½øÕ» 
+		// å°†å·¦å­©å­å…¨éƒ¨è¿›æ ˆ 
 		while (p) {
 			s.push(p);
 			p = p->lchild;
 		}
-		// qÒªÃ´ÊÇÃ»ÓÐ×óº¢×ÓµÄ½áµã£¬ÒªÃ´ÊÇ×ó×ÓÊ÷ÒÑ¾­·ÃÎÊÍê±ÏµÄ½áµã 
+		// qè¦ä¹ˆæ˜¯æ²¡æœ‰å·¦å­©å­çš„ç»“ç‚¹ï¼Œè¦ä¹ˆæ˜¯å·¦å­æ ‘å·²ç»è®¿é—®å®Œæ¯•çš„ç»“ç‚¹ 
 		BiNode *q = s.top();
 		cout<<(q->data)<<" "; 
 		s.pop();
-		// ²Ù×÷ÓÒ×ÓÊ÷ 
+		// æ“ä½œå³å­æ ‘ 
 		if (q->rchild) {
 			p = q->rchild;
 		}

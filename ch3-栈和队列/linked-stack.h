@@ -18,7 +18,7 @@ ElemType Stack_Top(LinkedStack);
 void Stack_Init(LinkedStack* s) {
 	*s = (LNode*)malloc(sizeof(LNode));
 	if (*s == NULL) {
-		printf("没有可分配的内存\n");
+		printf("娌℃湁鍙垎閰嶇殑鍐呭瓨\n");
 	} else {
 		(*s)->next = NULL;
 	}
@@ -27,7 +27,7 @@ void Stack_Init(LinkedStack* s) {
 void Stack_Push(LinkedStack s, ElemType e) {
 	LNode *node = (LNode*)malloc(sizeof(LNode));
 	if (node == NULL) {
-		printf("没有可分配的内存\n");
+		printf("娌℃湁鍙垎閰嶇殑鍐呭瓨\n");
 	} else {
 		node->data = e;
 		node->next = s->next;

@@ -40,7 +40,7 @@ void Double_Bubble_Sort(ElementType* A, int Size) {
 	}
 } 
 
-// °ÑËùÓĞÆæÊıÒÆ¶¯µ½ËùÓĞÅ¼ÊıÇ°Ãæ 
+// æŠŠæ‰€æœ‰å¥‡æ•°ç§»åŠ¨åˆ°æ‰€æœ‰å¶æ•°å‰é¢ 
 void Move_Odd_Even_Worst(ElementType* A, int Size) {
 	int count[2] = {0}, i;
 	ElementType Tmp[Size];
@@ -74,16 +74,16 @@ void QuicksortRandom(ElementType* A, int L, int R) {
 	QuicksortRandom(A, High + 1, R);
 }
 
-// Ëæ»úÑ¡Ôñµ±Ç°Êı×éµÄÒ»¸öÔªËØ×÷ÎªPivotµÄ¿ìËÙÅÅĞò 
+// éšæœºé€‰æ‹©å½“å‰æ•°ç»„çš„ä¸€ä¸ªå…ƒç´ ä½œä¸ºPivotçš„å¿«é€Ÿæ’åº 
 void Quick_Sort_Random(ElementType* A, int Size) {
 	QuicksortRandom(A, 0, Size - 1);
 }
 
-// ¼ÙÈçÊı×é°´ÕÕ´ÓĞ¡µ½´óÅÅĞò£¬ÕÒµ½µÚk¸öĞ¡µÄÔªËØ
-// ÈıÖÖÇé¿ö
-// 1.j==-1»òÕß´ËÊ±TmpÎ´ÌîÂú²¢ÇÒTmp×îºóµÄÔªËØÊÇĞ¡ÓÚ´ı¼ÓÈëÔªËØA[i]£¬´ËÊ±¿ÉÒÔÖ±½Ó¼ÓÈë
-// 2.ÒòÎªÕâÀïÊÇÕÒµÚ¼¸Ğ¡£¬ËùÒÔµ±Tmp±»ÌîÂúÊ±£¬Èô´ı¼ÓÈëÔªËØA[i]´óÓÚTmp×î´óÔªËØÊ±£¬¿ÉÒÔºöÂÔ
-// 3.A[i]Ğ¡ÓÚTmp×î´óµÄÔªËØ£¬´ËÊ±Tmp±ÈA[i]´óµÄÔªËØºóÒÆ(Òç³öµÄ¿ÉÒÔÉáÆú) 
+// å‡å¦‚æ•°ç»„æŒ‰ç…§ä»å°åˆ°å¤§æ’åºï¼Œæ‰¾åˆ°ç¬¬kä¸ªå°çš„å…ƒç´ 
+// ä¸‰ç§æƒ…å†µ
+// 1.j==-1æˆ–è€…æ­¤æ—¶Tmpæœªå¡«æ»¡å¹¶ä¸”Tmpæœ€åçš„å…ƒç´ æ˜¯å°äºå¾…åŠ å…¥å…ƒç´ A[i]ï¼Œæ­¤æ—¶å¯ä»¥ç›´æ¥åŠ å…¥
+// 2.å› ä¸ºè¿™é‡Œæ˜¯æ‰¾ç¬¬å‡ å°ï¼Œæ‰€ä»¥å½“Tmpè¢«å¡«æ»¡æ—¶ï¼Œè‹¥å¾…åŠ å…¥å…ƒç´ A[i]å¤§äºTmpæœ€å¤§å…ƒç´ æ—¶ï¼Œå¯ä»¥å¿½ç•¥
+// 3.A[i]å°äºTmpæœ€å¤§çš„å…ƒç´ ï¼Œæ­¤æ—¶Tmpæ¯”A[i]å¤§çš„å…ƒç´ åç§»(æº¢å‡ºçš„å¯ä»¥èˆå¼ƒ) 
 void Find_El_MinLoca(ElementType* A, int Size, int k) {
 	ElementType Tmp[k + 1];
 	int i, j = -1, p;
@@ -105,7 +105,7 @@ void Find_El_MinLoca(ElementType* A, int Size, int k) {
 	cout<<Tmp[k]<<endl;
 }
 
-// ºÉÀ¼¹úÆìÎÊÌâ ÒÔºì(0)°×(1)À¶(2)ÅÅĞò 
+// è·å…°å›½æ——é—®é¢˜ ä»¥çº¢(0)ç™½(1)è“(2)æ’åº 
 void DutchFlags(ElementType* A, int Size) {
 	ElementType Tmp[Size], count[3] = {0};
 	int i;
