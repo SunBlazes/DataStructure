@@ -71,7 +71,7 @@ void EncodeHandler(BTree T, char c, int v, Node* &child) {
 	if (!T) return;
 	EncodeHandler(T->lchild, c, v, child);
 	EncodeHandler(T->rchild, c, v, child);
-	// 如果该结点
+	// 如果该结点就是被编码的叶子结点
 	if (T->data == v && (!T->lchild && !T->rchild)) {
 		child = T;
 	}
