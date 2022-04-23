@@ -58,10 +58,20 @@ string Decode(BTree BT, string codes, int pos) {
 	return str;
 }
 
+/**
+ * @brief 后序编码每个结点
+ * 
+ * @param T 哈夫曼树
+ * @param c 需要被编码的字符
+ * @param v 需要被编码的字符对应的权重
+ * @param child 
+ */
 void EncodeHandler(BTree T, char c, int v, Node* &child) {
+	// 为NULL结点直接结束
 	if (!T) return;
 	EncodeHandler(T->lchild, c, v, child);
 	EncodeHandler(T->rchild, c, v, child);
+	// 如果该结点
 	if (T->data == v && (!T->lchild && !T->rchild)) {
 		child = T;
 	}
@@ -75,9 +85,18 @@ void EncodeHandler(BTree T, char c, int v, Node* &child) {
 	}
 }
 
+/**
+ * @brief 把字符编码为哈夫曼编码
+ * 
+ * @param chs 字符组
+ * @param data 权重数组
+ * @param len 需要编码字符的个数
+ */
 void Encode(char *chs, int *data, int len) {
 	for (int i = 0; i < len; i++) {
+		// 初始化每个字符对应的哈夫曼编码为空字符串
 		map_codes.insert(pair<char, string>(chs[i], ""));
+		// child代表
 		Node *child = NULL;
 		EncodeHandler(T, chs[i], data[i], child);
 	} 
