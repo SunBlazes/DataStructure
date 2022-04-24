@@ -67,7 +67,7 @@ Vertex Set_Find(SetType, Vertex);
 // Kruskal
 void Kruskal(MGraph, MinHeap, SetType);
 
-main() {
+int main() {
 	MinHeap H;
 	SetType Set;
 	MGraph Graph = BuildGraph(H);
@@ -175,7 +175,11 @@ MinHeap CreateMinHeap(int Num) {
 void Prim(MGraph Graph) {
 	// 总体思路：设置一个已经形成的最小生成树集合MST，初始为空
 	// 每次选出一条到这个最小生成树距离开销最小并且未收纳的边 
-	int dist[Graph->Nv] = {0}, Parent[Graph->Nv] = {-1};
+	int dist[Graph->Nv], Parent[Graph->Nv];
+	for (int i = 0; i < Graph->Nv; i++) {
+		dist[i] = 0;
+		Parent[i] = -1;
+	}
 	Vertex Source = 0, V;
 	dist[Source] = 0; // 收纳源点 
 	// 更新到最小生成树的距离 
@@ -295,7 +299,8 @@ bool Adjacent(MGraph Graph, Vertex V1, Vertex V2) {
 }
 
 void BFSTraverse(MGraph Graph) {
-	bool Visited[Graph->Nv] = {false};
+	bool Visited[Graph->Nv];
+	for (int i = 0; i < Graph->Nv; i++) Visited[i] = false;
 	Vertex V = 0;
 	for (; V < Graph->Nv; V++) {
 		if (!Visited[V]) BFS(Graph, V, Visited);
@@ -322,7 +327,8 @@ void BFS(MGraph Graph, Vertex V, bool* Visited) {
 }
 
 void DFSTraverse(MGraph Graph) {
-	bool Visited[Graph->Nv] = {false};
+	bool Visited[Graph->Nv];
+	for (int i = 0; i < Graph->Nv; i++) Visited[i] = false;
 	Vertex V = 0;
 	for (; V < Graph->Nv; V++) {
 		if (!Visited[V]) DFS(Graph, V, Visited);

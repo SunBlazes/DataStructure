@@ -67,7 +67,7 @@ void Exist_Loop_Handler(LGraph, Vertex, Vertex*, bool&);
 void OutputTopoSort(LGraph); 
 void OutputTopoSort_Handler(LGraph, Vertex, int&, bool*, int*);
 
-main () {
+int main () {
 	LGraph Graph = BuildGraph();
 //	BFS(Graph);
 //	DFS(Graph);
@@ -90,7 +90,8 @@ void OutputTopoSort(LGraph Graph) {
 	// why?因为拓扑排序要求每次输出一个入度为0的结点，入度为0意味着指向它的结点完成DFS递归时间比它久
 	// 也就是时间越久的结点越早输出 
 	// 当每个结点纪录了完成DFS递归的时间，最后按时间从晚到早进行输出对应的结点，就是TopoSort 
-	bool Visited[Graph->Nv] = {false};
+	bool Visited[Graph->Nv];
+	for (int i = 0; i < Graph->Nv; i++) Visited[i] = false;
 	int Time[Graph->Nv], cnt = 0;
 	Vertex V;
 	for (V = 0; V < Graph->Nv; V++) {
@@ -201,7 +202,8 @@ bool Is_Tree(LGraph Graph){
 bool Is_Tree1(LGraph Graph) {
 	// 简单图(只考虑简单图，默认成立)+连通图+(顶点数=边数+1)=>此图为树 
 	if (!(Graph->Nv == Graph->Ne + 1)) return false;
-	bool Visited[Graph->Nv] = {false};
+	bool Visited[Graph->Nv];
+	for (int i = 0; i < Graph->Nv; i++) Visited[i] = false;
 	Vertex V;
 	DFS_Handler(Graph, 0, Visited);
 	for (V = 0; V < Graph->Nv && Visited[V] == true; V++);
@@ -210,7 +212,8 @@ bool Is_Tree1(LGraph Graph) {
 
 bool Is_PathExist_Broad(LGraph Graph, Vertex V, Vertex W) {
 	Vertex Neighbor;
-	bool Visited[Graph->Nv] = {false};
+	bool Visited[Graph->Nv];
+	for (int i = 0; i < Graph->Nv; i++) Visited[i] = false;
 	queue<Vertex> q;
 	Visited[V] = true;
 	q.push(V);
@@ -230,7 +233,8 @@ bool Is_PathExist_Broad(LGraph Graph, Vertex V, Vertex W) {
 }
 
 bool Is_PathExist_Deep(LGraph Graph, Vertex V, Vertex W) {
-	bool Visited[Graph->Nv] = {false};
+	bool Visited[Graph->Nv];
+	for (int i = 0; i < Graph->Nv; i++) Visited[i] = false;
 	return Is_PathExist_Deep_Handler(Graph, V, W, Visited);
 }
 
@@ -253,7 +257,8 @@ void DFS1(LGraph Graph, Vertex V) {
 	// 总体思路：利用栈实现非递归的DFS，每次访问一个结点，就把该结点相连的结点推入栈
 	// 那么下次访问的就是这个结点相连的结点 
 	stack<Vertex> s;
-	bool Visited[Graph->Nv] = {false};
+	bool Visited[Graph->Nv];
+	for (int i = 0; i < Graph->Nv; i++) Visited[i] = false;
 	Visited[V] = true;
 	s.push(V);
 	while (!s.empty()) {
@@ -349,7 +354,8 @@ Vertex NextNeighbor(LGraph Graph, Vertex V, Vertex W) {
 }
 
 void BFS(LGraph Graph) {
-	bool Visited[Graph->Nv] = {false};
+	bool Visited[Graph->Nv];
+	for (int i = 0; i < Graph->Nv; i++) Visited[i] = false;
 	Vertex V;
 	for (V = 0; V < Graph->Nv; V++) {
 		if (!Visited[V]) BFS_Handler(Graph, V, Visited);
@@ -376,7 +382,8 @@ void BFS_Handler(LGraph Graph, Vertex V, bool* Visited) {
 }
 
 void DFS(LGraph Graph) {
-	bool Visited[Graph->Nv] = {false};
+	bool Visited[Graph->Nv];
+	for (int i = 0; i < Graph->Nv; i++) Visited[i] = false;
 	Vertex V;
 	for (V = 0; V < Graph->Nv; V++) {
 		if (!Visited[V]) DFS_Handler(Graph, V, Visited);
