@@ -999,7 +999,7 @@ void traverseByMidOrder1(BiTree B) {
 			// 标记该结点的左子树访问完毕 
 			p->tag = 0;
 			s.pop();
-			// 开始操作左子树 
+			// 开始操作右子树 
 			if (p->rchild) {
 				s.push(p->rchild);
 			}
